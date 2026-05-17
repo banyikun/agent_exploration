@@ -1194,11 +1194,12 @@ Classical multi-agent RL suites and newer language-agent collaboration benchmark
 If you find this survey useful, please cite:
 
 ```bibtex
-@article{ban2026epistemic,
-  title={Epistemic Exploration Toward Artificial General Intelligence},
-  author={Ban, Yikun and others},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2026}
+@misc{ban2026epistemic,
+  title  = {Epistemic Exploration Toward Artificial General Intelligence},
+  author = {Ban, Yikun and others},
+  year   = {2026},
+  doi    = {10.5281/zenodo.20201414},
+  url    = {https://doi.org/10.5281/zenodo.20201414}
 }
 ```
 
