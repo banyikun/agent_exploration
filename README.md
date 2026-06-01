@@ -55,10 +55,24 @@
 
 > **[Always] [Maintain]** We will keep this list updated frequently!
 
+---
 
 
+## Citation
 
-<br>
+If you find this survey useful, please cite:
+
+```bibtex
+@article{ban2026epistemic,
+  title  = {Epistemic Exploration Toward Artificial General Intelligence},
+  author = {Ban, Yikun and Yang, Fengkai and Chen, Fangzheng and Wang, Yibo and Chen, Zhijun and Li, Zhongyi and Huang, Zixuan and Zhang, Xiaoyuan and Li, Gongxun and Chen, Zehao and others},
+  year   = {2026},
+  doi    = {10.5281/zenodo.20201414},
+  url    = {https://doi.org/10.5281/zenodo.20201414}
+}
+```
+
+---
 
 
 
@@ -1189,22 +1203,6 @@ Classical multi-agent RL suites and newer language-agent collaboration benchmark
 ---
 <br>
 
-## 7. Citation
-
-If you find this survey useful, please cite:
-
-```bibtex
-@article{ban2026epistemic,
-  title  = {Epistemic Exploration Toward Artificial General Intelligence},
-  author = {Ban, Yikun and others},
-  year   = {2026},
-  doi    = {10.5281/zenodo.20201414},
-  url    = {https://doi.org/10.5281/zenodo.20201414}
-}
-```
-
----
-<br>
 
 <div align=center><img src="./fig/logobeihang.png" width="60%">
 </div> 
