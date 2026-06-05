@@ -1,5 +1,5 @@
 
-<h1 align="center">🔥 Awesome-Epistemic-Exploration
+<h1 align="center">🔥 Awesome-Agent-Exploration
 
 "Agent Exploration Toward Artificial General Intelligence"</h2>
 
