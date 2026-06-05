@@ -154,6 +154,8 @@ If you find this survey useful, please cite:
 
 ## 1. Overview
 
+We develop a unified view of **Epistemic Exploration** for Agents.
+
 ### 1.1 What is Epistemic Exploration?
 
 > **Epistemic exploration** is the agent's capacity to actively acquire information that reduces its uncertainty about the world, convert that reduction into durable policy improvement, and keep future acquisition possible.
