@@ -17,7 +17,7 @@
 
 
 <p align="center">
-  <!-- <a href="#"><img src="https://img.shields.io/badge/📄_Paper-ArXiv-red" alt="Paper"></a> -->
+  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6748619"><img src="https://img.shields.io/badge/📄_Paper-SSRN-blue" alt="Paper"></a>
   <!-- <a href="#"><img src="https://img.shields.io/badge/🌐_Website-Project_Page-blue" alt="Website"></a> -->
   <a href="https://github.com/banyikun/epistemic_exploration"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github" alt="GitHub"></a>
   <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
