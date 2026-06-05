@@ -1,7 +1,7 @@
 
 <h1 align="center">🔥 Awesome-Epistemic-Exploration
 
-"Epistemic Exploration Toward Artificial General Intelligence"</h2>
+"Agent Exploration Toward Artificial General Intelligence"</h2>
 
 
 
