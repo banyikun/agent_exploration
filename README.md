@@ -64,7 +64,7 @@ If you find this survey useful, please cite:
 
 ```bibtex
 @article{ban2026epistemic,
-  title  = {Epistemic Exploration Toward Artificial General Intelligence},
+  title  = {Agent Exploration Toward Artificial General Intelligence},
   author = {Ban, Yikun and Yang, Fengkai and Chen, Fangzheng and Wang, Yibo and Chen, Zhijun and Li, Zhongyi and Huang, Zixuan and Zhang, Xiaoyuan and Li, Gongxun and Chen, Zehao and others},
   year   = {2026},
   doi    = {10.5281/zenodo.20201414},
