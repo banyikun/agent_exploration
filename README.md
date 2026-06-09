@@ -47,7 +47,7 @@
 
 ## 📣 Notices
 
-> 🔥 This is a curated paper list for the survey **"Epistemic Exploration Toward Artificial General Intelligence"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
+> 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
 
 > 🔥 **Stay tuned for our full paper release, incorporating the latest developments.**
 
@@ -73,6 +73,21 @@ If you find this survey useful, please cite:
 ```
 
 ---
+
+
+
+
+## 1. Overview
+
+It is not enough for AI systems to learn only what they are expected to learn. To move toward AGI, agents must also know what they do not know—and actively explore to acquire new information, capabilities, and experiences.  
+
+We present a unified framework for exploration, named "Epistemic Exploration", connect it to insights from natural intelligence, reinforcement learning, and modern AI agents, and discuss how exploration may serve as a key mechanism driving the progression toward AGI. 
+
+### 1.1 What is Epistemic Exploration?
+
+> **Epistemic exploration** is the agent's capacity to actively acquire information that reduces its uncertainty about the world, convert that reduction into durable policy improvement, and keep future acquisition possible.
+
+Unlike undirected exploration (e.g., ε-greedy), epistemic exploration is *intentional*, *belief-driven*, and *multi-scale*: the agent reasons about which actions are most informative and plans multi-step information-gathering strategies across reasoning trajectories, tool-use policies, embodied sensorimotor loops, world-model rollouts, and multi-agent coordination protocols.
 
 
 
@@ -151,16 +166,6 @@ If you find this survey useful, please cite:
 <br>
 
 
-
-## 1. Overview
-
-We develop a unified view of **Epistemic Exploration** for Agents.
-
-### 1.1 What is Epistemic Exploration?
-
-> **Epistemic exploration** is the agent's capacity to actively acquire information that reduces its uncertainty about the world, convert that reduction into durable policy improvement, and keep future acquisition possible.
-
-Unlike undirected exploration (e.g., ε-greedy), epistemic exploration is *intentional*, *belief-driven*, and *multi-scale*: the agent reasons about which actions are most informative and plans multi-step information-gathering strategies across reasoning trajectories, tool-use policies, embodied sensorimotor loops, world-model rollouts, and multi-agent coordination protocols.
 
 
 ### 1.2 Three Criteria
