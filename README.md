@@ -659,6 +659,7 @@ Video generation models serve as physics engines, enabling RL agents to explore 
 | 2024-04 | **Video Language Planning** | Combines video generation with language-conditioned planning: generates goal-directed video plans as imagined futures, then executes them via a learned policy… | [Video Language Planning](https://arxiv.org/abs/2310.10625) | [![GitHub Stars](https://img.shields.io/github/stars/video-language-planning/vlp_code?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/video-language-planning/vlp_code) |
 
 
+
 ##### Model as Agent
 
 RL directly optimises the video generation process itself, forcing the generative model to actively explore the generation space toward physically plausible outputs.
