@@ -148,11 +148,8 @@ Unlike undirected exploration (e.g., ε-greedy), epistemic exploration is *inten
     - [5.1.2 Learnable Orchestration (Competence-Driven)](#512-learnable-orchestration-competence-driven)
     - [5.1.3 Reflection \& Information-Theoretic Orchestration (Uncertainty-Driven)](#513-reflection--information-theoretic-orchestration-uncertainty-driven)
     - [5.1.4 Memory \& Knowledge Substrate Exploration](#514-memory--knowledge-substrate-exploration)
-  - [5.2 Agentic Ensemble Papers](#52-agentic-ensemble-papers)
-    - [5.2.1 Ensemble-During-Inference Papers](#521-ensemble-during-inference-papers)
-    - [5.2.2 Ensemble-After-Inference Papers](#522-ensemble-after-inference-papers)
-    - [5.2.3 Ensemble-Before-Inference Papers](#523-ensemble-before-inference-papers)
-    - [5.2.4 Cascaded-Based Papers](#524-cascaded-based-papers)
+  - [5.2 Agentic Ensemble](#52-agentic-ensemble)
+    - [5.2.1 Competence-Driven Exploration: Cascade Methods](#521-competence-driven-exploration-cascade-methods)
   - [5.3 MARL](#53-marl)
   - [5.4 Self-Evolving](#54-self-evolving)
 - [6. Exploration Evaluation](#6-exploration-evaluation)
@@ -873,137 +870,19 @@ Methods that build self-evolving multi-agent systems on shared memory or knowled
 <br>
 
 
-### 5.2 Agentic Ensemble Papers
-
-
-
-
-#### 5.2.1 Ensemble-During-Inference Papers
-
-
-
-Methods that explore how to combine or choose token candidates from multiple LLMs at each decoding step, either by merging next-token distributions or by selecting the token from one model directly:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-10 | **SAFE** | Only ensembles at a few well-chosen token steps to keep decoding stable and fast | [When to Ensemble: Identifying Token-Level Points for Stable and Fast LLM Ensembling](https://arxiv.org/abs/2510.15346) | - |
-| 2025-10 | **CoRe** | Uses token and model agreement to downweight unreliable signals | [Harnessing Consistency for Robust Test-Time LLM Ensemble](https://arxiv.org/abs/2510.13855) | - |
-| 2025-05 | **Transformer Copilot** | A Copilot learns from past token mistakes and fixes the Pilot’s logits | [Transformer Copilot: Learning from The Mistake Log in LLM Fine-tuning](https://arxiv.org/abs/2505.16270) | [![GitHub Stars](https://img.shields.io/github/stars/jiaruzouu/TransformerCopilot?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/jiaruzouu/TransformerCopilot) |
-| 2025-02 | **ABE** | Makes different-vocabulary models agree on the same surface token before choosing it | [Token-level Ensembling of Models with Different Vocabularies](https://arxiv.org/abs/2502.21265) | [![GitHub Stars](https://img.shields.io/github/stars/mjpost/abe?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/mjpost/abe) |
-| 2025-02 | **CITER** | Sends easy tokens to a small model and hard ones to a large model | [CITER: Collaborative Inference for Efficient Large Language Model Decoding with Token-Level Routing](https://arxiv.org/abs/2502.01976) | [![GitHub Stars](https://img.shields.io/github/stars/aiming-lab/CITER?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/aiming-lab/CITER) |
-| 2024-10 | **UniTe** | Ensembles only the union of top-*k* tokens instead of the full vocabulary | [Determine-Then-Ensemble: Necessity of Top-k Union for Large Language Model Ensembling](https://arxiv.org/abs/2410.03777) | - |
-| 2024-06 | **GaC** | Treats next-token generation like classification and averages token probabilities | [Breaking the Ceiling of the LLM Community by Treating Token Generation as a Classification for Ensembling](https://arxiv.org/abs/2406.12585) | [![GitHub Stars](https://img.shields.io/github/stars/yaoching0/GaC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/yaoching0/GaC) |
-| 2024-04 | **DeePEn** | Maps different vocabularies into a shared space before merging token distributions | [Ensemble Learning for Heterogeneous Large Language Models with Deep Parallel Collaboration](https://arxiv.org/abs/2404.12715) | [![GitHub Stars](https://img.shields.io/github/stars/OrangeInSouth/DeePEn?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/OrangeInSouth/DeePEn) |
-| 2024-04 | **PackLLM** | Gives more weight to models that fit the prompt better | [Pack of LLMs: Model Fusion at Test-Time via Perplexity Optimization](https://arxiv.org/abs/2404.11531) | [![GitHub Stars](https://img.shields.io/github/stars/cmavro/PackLLM?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/cmavro/PackLLM) |
-| 2024-04 | **EVA** | Learns vocabulary mappings so different models can ensemble token by token | [Bridging the Gap between Different Vocabularies for LLM Ensemble](https://arxiv.org/abs/2404.09492) | [![GitHub Stars](https://img.shields.io/github/stars/xydaytoy/EVA?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/xydaytoy/EVA) |
-| 2024-02 | **-** | Uses a benign small model to pull token probabilities away from harmful outputs | [Purifying large language models by ensembling a small language model](https://arxiv.org/abs/2402.14845) | - |
-
-
-
-
-Methods that explore how to generate, assess, and select short text spans from multiple LLMs during decoding, so that the best segment can be fed back for the next step:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-06 | **RLAE** | Adjusts model weights on the fly as generation goes on | [RLAE: Reinforcement Learning-Assisted Ensemble for LLMs](https://arxiv.org/abs/2506.00439) | - |
-| 2024-12 | **SpecFuse** | Lets models draft short spans, then picks the best one for the next step | [SpecFuse: Ensembling Large Language Models via Next-Segment Prediction](https://arxiv.org/abs/2412.07380) | - |
-| 2025-02 | **Speculative Ensemble** | Lets one model draft a span and others verify it for faster decoding | [Speculative Ensemble: Fast Large Language Model Ensemble via Speculation](https://arxiv.org/abs/2502.01662) | [![GitHub Stars](https://img.shields.io/github/stars/Kamichanw/Speculative-Ensemble?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Kamichanw/Speculative-Ensemble/) |
-| 2024-09 | **SweetSpan** | Lets each model write a short span, then uses mutual scoring to choose one | [Hit the Sweet Spot! Span-Level Ensemble for Large Language Models](https://arxiv.org/abs/2409.18583) | - |
-| 2024-07 | **Cool-Fusion** | Waits for a shared word boundary, then selects the best whole span | [Cool-Fusion: Fuse Large Language Models without Training](https://arxiv.org/abs/2407.19807) | - |
-
-
-
-
-Methods that explore multiple reasoning steps across LLMs during multi-step problem solving, and choose the most promising next step or reasoning path along the way:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-11 | **CBS** | Explores many next reasoning steps, then keeps the ones backed by collective consensus | [Collaborative Beam Search: Enhancing LLM Reasoning via Collective Consensus](https://aclanthology.org/2025.emnlp-main.574/) | - |
-| 2024-12 | **LE-MCTS** | Searches over next reasoning steps and keeps the path with the best process reward | [Ensembling Large Language Models with Process Reward-Guided Tree Search for Better Complex Reasoning](https://arxiv.org/abs/2412.15797) | - |
-
-#### 5.2.2 Ensemble-After-Inference Papers
-
-
-Methods that explore how to compare multiple complete responses after generation, either by selecting the single best answer or by choosing a strong subset for regeneration:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-12 | **LLM-PeerReview** | Lets LLM judges score candidate answers and picks the best-reviewed one | [Scoring, Reasoning, and Selecting the Best! Ensembling Large Language Models via a Peer-Review Process](https://arxiv.org/abs/2512.23213) | [![GitHub Stars](https://img.shields.io/github/stars/zeyuji/LLM-PeerReview?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zeyuji/LLM-PeerReview) |
-| 2025-10 | **LLMartini** | Aligns answer parts so users can compare and compose a final response | [LLMartini: Seamless and Interactive Leveraging of Multiple LLMs through Comparison and Composition](https://arxiv.org/abs/2510.19252) | - |
-| 2025-10 | **Beyond Consensus** | Uses minority veto to stop overly agreeable judges from accepting bad answers | [Beyond Consensus: Mitigating the Agreeableness Bias in LLM Judge Evaluations](https://arxiv.org/abs/2510.11822) | [![GitHub Stars](https://img.shields.io/github/stars/ai-cet/paper-arxiv-llm-judge-calibration?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ai-cet/paper-arxiv-llm-judge-calibration) |
-| 2025-10 | **OW/ISP** | Uses who agrees with whom, not just vote counts | [Beyond Majority Voting: LLM Aggregation by Leveraging Higher-Order Information](https://www.arxiv.org/abs/2510.01499) | - |
-| 2025-09 | **FLAME** | Aggregates line-level annotations from several LLMs to rank bug locations | [Explainable Fault Localization for Programming Assignments via LLM-Guided Annotation](https://arxiv.org/pdf/2509.25676v1) | [![GitHub Stars](https://img.shields.io/github/stars/FLAME-FL/FLAME?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/FLAME-FL/FLAME) |
-| 2025-09 | **CARGO** | Uses confidence-aware scoring to decide which model to trust more | [CARGO: A Framework for Confidence-Aware Routing of Large Language Models](https://arxiv.org/abs/2509.14899) | - |
-| 2025-07 | **LENS** | Learns how much to trust each answer from internal states | [LENS: Learning Ensemble Confidence from Neural States for Multi-LLM Answer Integration](https://arxiv.org/abs/2507.23167) | - |
-| 2025-05 | **EL4NER** | Merges small-LLM NER outputs and self-checks the final spans | [EL4NER: Ensemble Learning for Named Entity Recognition via Multiple Small-Parameter Large Language Models](https://arxiv.org/abs/2505.23038) | - |
-| 2025-03 | **Symbolic-MoE** | Selects skill-matched experts and then combines their finished reasonings | [Symbolic Mixture-of-Experts: Adaptive Skill-based Routing for Heterogeneous Reasoning](https://arxiv.org/abs/2503.05641) | [![GitHub Stars](https://img.shields.io/github/stars/dinobby/Symbolic-MoE?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/dinobby/Symbolic-MoE/) |
-| 2025-01 | **DFPE** | Keeps diverse strong models, filters weak ones, and reweights the rest | [DFPE: A Diverse Fingerprint Ensemble for Enhancing LLM Performance](https://arxiv.org/abs/2501.17479) | [![GitHub Stars](https://img.shields.io/github/stars/nivgold/DFPE?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/nivgold/DFPE) |
-| 2025-01 | **DMoA** | Balances diversity and consistency before mixing answers | [Balancing Act: Diversity and Consistency in Large Language Model Ensembles](https://openreview.net/pdf?id=Dl6nkKKvlX) | - |
-| 2024-12 | **Smoothie** | Picks the answer most supported by the others, without labels | [Smoothie: Label Free Language Model Routing](https://arxiv.org/abs/2412.04692) | [![GitHub Stars](https://img.shields.io/github/stars/HazyResearch/smoothie?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/HazyResearch/smoothie) |
-| 2024-10 | **LLM-Forest** | Uses weighted voting across graph-guided prompt variants | [LLM-Forest: Ensemble Learning of LLMs with Graph-Augmented Prompts for Data Imputation](https://arxiv.org/abs/2410.21520) | [![GitHub Stars](https://img.shields.io/github/stars/Xinrui17/LLM-Forest?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Xinrui17/LLM-Forest) |
-| 2024-10 | **LLM-TOPLA** | Selects a diverse top-*k* set before regeneration | [LLM-TOPLA: Efficient LLM Ensemble by Maximising Diversity](https://arxiv.org/abs/2410.03953) | [![GitHub Stars](https://img.shields.io/github/stars/git-disl/llm-topla?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/git-disl/llm-topla) |
-| 2024-10 | **MLKF** | Fuses complementary reasoning from multiple LLMs into one answer | [Two Heads are Better than One: Zero-shot Cognitive Reasoning via Multi-LLM Knowledge Fusion](https://dl.acm.org/doi/abs/10.1145/3627673.3679744) | [![GitHub Stars](https://img.shields.io/github/stars/trueBatty/MLKF?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/trueBatty/MLKF) |
-| 2024-08 | **URG** | Learns ranking and regeneration together | [URG: A Unified Ranking and Generation Method for Ensembling Language Models](https://aclanthology.org/2024.findings-acl.261/) | - |
-| 2024-02 | **Agent-Forest** | Samples many answers and keeps the one most supported by voting | [More Agents Is All You Need](https://arxiv.org/abs/2402.05120) | [![GitHub Stars](https://img.shields.io/github/stars/MoreAgentsIsAllYouNeed/AgentForest?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/MoreAgentsIsAllYouNeed/AgentForest) |
-| 2023-06 | **LLM-Blender** | Ranks answers first, then fuses the best few into one | [LLM-Blender: Ensembling Large Language Models with Pairwise Ranking and Generative Fusion](https://arxiv.org/abs/2306.02561) | [![GitHub Stars](https://img.shields.io/github/stars/yuchenlin/LLM-Blender?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/yuchenlin/LLM-Blender) |
-| 2023-05 | **MoRE** | Uses agreement among reasoning experts to choose an answer or abstain | [Getting MoRE out of Mixture of Language Model Reasoning Experts](https://arxiv.org/abs/2305.14628) | [![GitHub Stars](https://img.shields.io/github/stars/NoviScl/MoRE?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/NoviScl/MoRE) |
+### 5.2 Agentic Ensemble 
 
 
 
 
 
-#### 5.2.3 Ensemble-Before-Inference Papers
-
-
-Methods that route each query by predicting discrete model utility—such as whether a model is likely to be good enough, or which model is better than another under the query:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-10 | **DiSRouter** | Lets models help decide which peer should answer | [DISROUTER: Distributed Self-Routing for LLM Selections](https://arxiv.org/abs/2510.19208) | - |
-| 2025-06 | **TagRouter** | Matches queries to model tags instead of training a heavy router | [TAGROUTER: Learning Route to LLMs through Tags for Open-Domain Text Generation Tasks](https://arxiv.org/abs/2506.12473) | - |
-| 2025-06 | **Router-R1** | Learns multi-round routing to choose and combine models better | [Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning](https://arxiv.org/abs/2506.09033) | [![GitHub Stars](https://img.shields.io/github/stars/ulab-uiuc/Router-R1?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ulab-uiuc/Router-R1) |
-| 2025-06 | **RadialRouter** | Builds a structured query view for more robust routing | [RadialRouter: Structured Representation for Efficient and Robust Large Language Models Routing](https://www.arxiv.org/abs/2506.03880) | - |
-| 2025-05 | **RTR** | Chooses both the model and the reasoning style | [Route to Reason: Adaptive Routing for LLM and Reasoning Strategy Selection](https://arxiv.org/abs/2505.19435) | [![GitHub Stars](https://img.shields.io/github/stars/goodmanpzh/Route-To-Reason?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/goodmanpzh/Route-To-Reason) |
-| 2024-12 | **Bench-CoE** | Routes queries using benchmark-based model strengths | [Bench-CoE: a Framework for Collaboration of Experts from Benchmark](https://arxiv.org/abs/2412.04167) | [![GitHub Stars](https://img.shields.io/github/stars/ZhangXJ199/Bench-CoE?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ZhangXJ199/Bench-CoE) |
-| 2024-10 | **GraphRouter** | Uses graph structure to choose the best model | [GraphRouter: A Graph-based Router for LLM Selections](https://arxiv.org/abs/2410.03834) | [![GitHub Stars](https://img.shields.io/github/stars/ulab-uiuc/GraphRouter?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ulab-uiuc/GraphRouter) |
-| 2024-09 | **Eagle** | Compares candidate models without extra router training | [Eagle: Efficient Training-Free Router for Multi-LLM Inference](https://arxiv.org/abs/2409.15518) | - |
-| 2024-08 | **SelectLLM** | Scores each query and picks an efficient model | [SelectLLM: Query-Aware Efficient Selection Algorithm for Large Language Models](https://arxiv.org/abs/2408.08545) | - |
-| 2024-06 | **RouteLLM** | Learns when a cheaper model can replace a stronger one | [RouteLLM: Learning to Route LLMs with Preference Data](https://arxiv.org/abs/2406.18665) | [![GitHub Stars](https://img.shields.io/github/stars/lm-sys/RouteLLM?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/lm-sys/RouteLLM) |
-| 2024-05 | **LLM Routing Lessons** | Shows which prompt cues help choose the right model | [Harnessing the Power of Multiple Minds: Lessons Learned from LLM Routing](https://arxiv.org/abs/2405.00467) | [![GitHub Stars](https://img.shields.io/github/stars/kvadityasrivatsa/llm-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/kvadityasrivatsa/llm-routing) |
-| 2024-04 | **Hybrid-LLM** | Balances answer quality and cost before choosing a model | [Hybrid LLM: Cost-Efficient and Quality-Aware Query Routing](https://arxiv.org/abs/2404.14618) | [![GitHub Stars](https://img.shields.io/github/stars/m365-core/hybrid_llm_routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/m365-core/hybrid_llm_routing) |
-| 2024-03 | **ETR** | Routes expert tokens to the most suitable specialist model | [An Expert is Worth One Token: Synergizing Multiple Expert LLMs as Generalist via Expert Token Routing](https://arxiv.org/abs/2403.16854) | [![GitHub Stars](https://img.shields.io/github/stars/zjunet/ETR?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zjunet/ETR) |
-| 2024-01 | **Routoo** | Learns to send each query to the model most likely to work | [Routoo: Learning to Route to Large Language Models Effectively](https://arxiv.org/abs/2401.13979) | - |
-| 2024 | **RouterDC** | Learns query embeddings that make routing easier | [RouterDC: Query-Based Router by Dual Contrastive Learning for Assembling Large Language Models](https://proceedings.neurips.cc/paper_files/paper/2024/hash/7a641b8ec86162fc875fb9f6456a542f-Abstract-Conference.html) | [![GitHub Stars](https://img.shields.io/github/stars/shuhao02/RouterDC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/shuhao02/RouterDC) |
-| 2023-11 | **ZOOTER** | Uses reward signals to pick the right expert model | [Routing to the Expert: Efficient Reward-guided Ensemble of Large Language Models](https://arxiv.org/abs/2311.08692) | - |
-| 2023-08 | **FORC** | Chooses the cheapest model that is still good enough | [Fly-Swat or Cannon? Cost-Effective Language Model Choice via Meta-Modeling](https://arxiv.org/abs/2308.06077) | [![GitHub Stars](https://img.shields.io/github/stars/epfl-dlab/forc?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/epfl-dlab/forc) |
-| 2023 | **Benchmark Routing** | Builds routing rules from benchmark-level model performance | [LLM Routing with Benchmark Datasets](https://openreview.net/forum?id=k9EfAJhFZc) | - |
-
-
-
-Methods that route each query by predicting continuous model utility—such as performance scores, costs, latency, or combined rewards—so the router can make finer trade-offs:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-10 | **WebRouter** | Compresses web-agent prompts and routes with cost in mind | [WebRouter: Query-specific Router via Variational Information Bottleneck for Cost-sensitive Web Agent](https://arxiv.org/abs/2510.11221) | - |
-| 2025-10 | **LLMRank** | Uses rich query features to rank which model should answer | [LLMRank: Understanding LLM Strengths for Model Routing](https://arxiv.org/abs/2510.01234) | - |
-| 2025-05 | **Avengers** | Combines small models by routing queries to their strengths | [The Avengers: A Simple Recipe for Uniting Smaller Language Models to Challenge Proprietary Giants](https://arxiv.org/abs/2505.19797) | [![GitHub Stars](https://img.shields.io/github/stars/ZhangYiqun018/Avengers?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ZhangYiqun018/Avengers) |
-| 2025-05 | **InferenceDynamics** | Profiles model skills and knowledge before routing | [InferenceDynamics: Efficient Routing Across LLMs through Structured Capability and Knowledge Profiling](https://arxiv.org/abs/2505.16303) | - |
-| 2025-05 | **kNN Router** | Uses nearest past queries instead of a complex learned router | [Rethinking Predictive Modeling for LLM Routing: When Simple kNN Beats Complex Learned Routers](https://arxiv.org/abs/2505.12601) | - |
-| 2025 | **RELM** | Learns recommendation and evaluation together for model selection | [Co-optimizing Recommendation and Evaluation for LLM Selection](https://openreview.net/pdf?id=gWi4ZcPQRl) | - |
-| 2025-02 | **LLM Bandit** | Explores cheap options first and learns cost-aware routing online | [LLM Bandit: Cost-Efficient LLM Generation via Preference-Conditioned Dynamic Routing](https://arxiv.org/abs/2502.02743) | - |
-| 2024-12 | **PickLLM** | Uses RL to pick the best model from context and budget cues | [PickLLM: Context-Aware RL-Assisted Large Language Model Routing](https://arxiv.org/abs/2412.12170) | - |
-| 2024-08 | **TO-Router** | Predicts utility under latency and cost constraints | [TensorOpera Router: A Multi-Model Router for Efficient LLM Inference](https://arxiv.org/abs/2408.12320) | - |
-| 2024-07 | **MetaLLM** | Wraps several models and picks one using predicted utility | [MetaLLM: A High-performant and Cost-efficient Dynamic Framework for Wrapping LLMs](https://arxiv.org/abs/2407.10834) | [![GitHub Stars](https://img.shields.io/github/stars/mail-research/MetaLLM-wrapper?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/mail-research/MetaLLM-wrapper/) |
-| 2024-06 | **HomoRouter** | Routes queries among similar tools with fine-grained scoring | [Query Routing for Homogeneous Tools: An Instantiation in the RAG Scenario](https://arxiv.org/abs/2406.12429) | - |
-| 2024-01 | **Blending** | Blends model strengths as a cheaper alternative to one giant model | [Blending Is All You Need: Cheaper, Better Alternative to Trillion-Parameters LLM](https://arxiv.org/abs/2401.02994) | - |
-
-#### 5.2.4 Cascaded-Based Papers
-
-
+#### 5.2.1 Competence-Driven Exploration: Cascade Methods
 
 
 
 Methods that explore an ordered chain of models—typically from cheaper/weaker ones to more capable/costlier ones—to decide whether a query can stop early, should defer upward, or should switch routes to obtain a better answer under a desired cost-performance trade-off:
+These methods explore when to halt computation along a weak-to-strong model cascade and which model should ultimately serve as the decision
+maker.
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
