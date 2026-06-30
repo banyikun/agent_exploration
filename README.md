@@ -879,10 +879,8 @@ Methods that build self-evolving multi-agent systems on shared memory or knowled
 #### 5.2.1 Competence-Driven Exploration: Cascade Methods
 
 
-
-Methods that explore an ordered chain of models—typically from cheaper/weaker ones to more capable/costlier ones—to decide whether a query can stop early, should defer upward, or should switch routes to obtain a better answer under a desired cost-performance trade-off:
-These methods explore when to halt computation along a weak-to-strong model cascade and which model should ultimately serve as the decision
-maker.
+These methods rely on an ordered chain of models—typically ranging from cost-effective, weaker models to more capable, premium ones—to determine whether a query can be early-stopped, escalated to a stronger model.
+That is, these methods explore when to halt computation along a weak-to-strong model cascade and which model should ultimately serve as the decision maker.
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
