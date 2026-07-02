@@ -299,15 +299,15 @@ Methods that prevent irreversible contraction of reasoning trajectory distributi
 
 ## 3. Level 3: Reasoner → Agent — Perception- & Action-Space Exploration
 
-At Level 3, the agent crosses from internal reasoning into **situated interaction with external environments**. Exploration unfolds in perception and action space, where every step incurs real cost.
+At Level 3, the agent crosses a qualitative boundary: it moves from purely internal reasoning into situated interaction with external environments. The "Reasoner" of Levels 1–2 generates hypotheses within its own token space; the "Agent" must act on those hypotheses—querying databases, invoking APIs, reorienting sensors, or manipulating physical objects—and update its beliefs from the consequences. Exploration can no longer be confined to branching over reasoning trajectories; it now unfolds in perception and action space, where every exploratory step incurs real cost (latency, API calls, energy, or irreversible physical change).
 
 ### 3.1 Digital Agents
 
-Agents operating in software-mediated environments (web, APIs, code interpreters):
+Digital agents operate in software-mediated environments—web browsers, code interpreters, file systems, and tool APIs. Their action space is discrete and combinatorial (which tool to call, with what arguments, in what order), feedback is fast but often sparse, and the primary exploration challenge is discovering effective tool-invocation policies across a vast combinatorial manifold.
 
 #### 3.1.1 Uncertainty-Driven Exploration
 
-Methods that acquire information under partial observability by prioritising uncertain states, tool calls, or capability boundaries:
+Beyond maintaining diversity, a digital agent must actively seek information to resolve the epistemic uncertainty that arises when static pre-trained priors prove insufficient in "environmentally-open" scenarios. Uncertainty-priority exploration leverages uncertainty signals to prioritize informative interactions and mitigate overconfident failures under partial observability. Methods typically fall into explicit uncertainty estimation (using UCB or count-based bonuses) and implicit self-perceived uncertainty (triggering reflection or knowledge seeking at capability boundaries):
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
@@ -321,7 +321,7 @@ Methods that acquire information under partial observability by prioritising unc
 
 #### 3.1.2 Competence-Driven Exploration
 
-Methods that tame combinatorial tool-use spaces through curricula, process-level credit assignment, and self-generated training tasks:
+To master the vast and high-dimensional action space inherent in agentic interaction, systems must transcend naive trial-and-error. Strategic exploration prunes the action manifold and prioritizes high-utility trajectories through curricula (staged complexity), prior-based credit assignment (objective-aligned process signals), and self-play (autonomously generating targeted action distributions):
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
@@ -338,7 +338,7 @@ Methods that tame combinatorial tool-use spaces through curricula, process-level
 
 #### 3.1.3 Reachability-Driven Exploration
 
-Methods that preserve behavioural flexibility by regulating entropy or injecting useful off-policy experience:
+A digital agent's policy can rapidly collapse onto a narrow set of favoured tool-invocation patterns, foreclosing alternative interaction strategies before they can be evaluated. Reachability-driven methods explicitly optimise for sustained trajectory diversity through entropy control (regulating policy entropy) and external experience injection (exposing the agent to useful off-policy behaviours):
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
@@ -352,14 +352,14 @@ Methods that preserve behavioural flexibility by regulating entropy or injecting
 
 ### 3.2 Embodied Agents
 
-<p align="center"><img src="fig/level3_embodied.png" width="850"/></p>
+<p align="center"><img src="fig/Level3Embodied.pdf" width="850"/></p>
 <p align="center"><i>Figure: Level 3 Embodied Agent Exploration — Uncertainty-driven active perception, competence-driven navigation & RL & test-time compute, and reachability-driven reward engineering & constrained safety.</i></p>
 
-Embodied agents operate in continuous, high-dimensional action spaces where every physical interaction consumes time, energy, and mechanical wear, and many actions are irreversible. The three exploration paradigms adapt to this setting as follows:
+Embodied agents—robotic manipulators, autonomous vehicles, navigation systems—explore in a continuous, high-dimensional action space defined by physical effectors and multimodal sensors. The cost of exploration is fundamentally different from the digital setting: every physical interaction consumes time, energy, and mechanical wear, and many actions are irreversible. The three exploration paradigms adapt to this setting as follows:
 
 #### 3.2.1 Uncertainty-Driven Exploration
 
-Before executing complex plans in open-ended environments, agents must overcome severe partial observability by actively controlling their sensors to maximise information gain, eliminating cognitive blind spots.
+Before an agent can execute complex plans in open-ended environments, it must first overcome severe partial observability. Exploration at this foundational layer is primarily triggered by *sensor uncertainty spikes*—situations where the agent's perceptual confidence drops below a critical threshold due to hidden states. To eliminate these cognitive blind spots, agents actively control their sensory apparatus to maximize information gain.
 
 **Geometric & high-fidelity reconstruction.** Viewpoint selection for active mapping, information-theoretic coverage, and ensemble-disagreement-based exploration of dynamics.
 
@@ -381,7 +381,7 @@ Before executing complex plans in open-ended environments, agents must overcome 
 
 #### 3.2.2 Competence-Driven Exploration
 
-Competence-driven exploration spans two tightly coupled phases: the agent must first **navigate** to task-relevant states, then **manipulate** the environment to achieve its objectives. Both push beyond pre-trained priors at the frontier between what the agent can already do and what it cannot yet do.
+Competence-driven exploration spans two tightly coupled phases: first, the agent must navigate the environment to reach task-relevant states; second, it must manipulate the environment to achieve its objectives. Both phases require the agent to push beyond pre-trained priors, targeting the frontier between what it can already do and what it cannot yet do.
 
 **Objective-driven navigation.** Translating high-level language goals into executable subgoals and using semantic representations to prune the spatial search manifold.
 
@@ -432,7 +432,7 @@ Competence-driven exploration spans two tightly coupled phases: the agent must f
 
 #### 3.2.3 Reachability-Driven Exploration
 
-Defining *what* to explore and preventing exploration from irreversibly foreclosing future options are the central reachability challenges for embodied agents.
+Defining *what* to explore remains a bottleneck in unbounded action spaces, and ensuring that exploration does not irreversibly foreclose future options is the central reachability challenge for embodied agents. Two complementary mechanisms address this: automated reward engineering that shapes the topology of the explorable space, and safety constraints that prevent catastrophic contraction of the agent's reachable state set.
 
 **Automated reward engineering & curiosity.** LLM-driven reward synthesis and curiosity / curriculum mechanisms sustain broad exploration incentives in unbounded physical manifolds.
 
