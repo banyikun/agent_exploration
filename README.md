@@ -352,7 +352,7 @@ A digital agent's policy can rapidly collapse onto a narrow set of favoured tool
 
 ### 3.2 Embodied Agents
 
-<p align="center"><img src="fig/Level3Embodied.pdf" width="850"/></p>
+<p align="center"><img src="fig/Level3Embodied.png" width="850"/></p>
 <p align="center"><i>Figure: Level 3 Embodied Agent Exploration — Uncertainty-driven active perception, competence-driven navigation & RL & test-time compute, and reachability-driven reward engineering & constrained safety.</i></p>
 
 Embodied agents—robotic manipulators, autonomous vehicles, navigation systems—explore in a continuous, high-dimensional action space defined by physical effectors and multimodal sensors. The cost of exploration is fundamentally different from the digital setting: every physical interaction consumes time, energy, and mechanical wear, and many actions are irreversible. The three exploration paradigms adapt to this setting as follows:
