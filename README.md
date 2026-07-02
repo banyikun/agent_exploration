@@ -238,7 +238,7 @@ Our survey is organized as a **3×5 taxonomy** crossing three signal-driven meth
 
 The transition from **Responder** to **Reasoner** requires exploration in *reasoning space*: branching over token sequences, reasoning trajectories, and latent thought representations. The agent must search for informative hypotheses rather than simply produce reactive outputs.
 
-<p align="center"><img src="fig/level1_reasoner.png" width="850"/></p>
+<p align="center"><img src="fig/level2_image" width="850"/></p>
 <p align="center"><i>Figure: Levels 1–2 Reasoning-Space Exploration — Why (entropy escalation & reward stagnation), Where (tokens → turns → latent trajectories), and How (uncertainty / competence / reachability-driven).</i></p>
 
 <br>
