@@ -286,7 +286,7 @@ Latent-space exploration searches over hidden states or compact latent actions b
 
 
 
-## 3. Level 3: Reasoner → Agent — Perception- & Action-Space Exploration
+## 3. Level 3: Agent — Perception- & Action-Space Exploration
 
 At Level 3, the agent crosses a qualitative boundary: it moves from purely internal reasoning into situated interaction with external environments. The "Reasoner" of Levels 1–2 generates hypotheses within its own token space; the "Agent" must act on those hypotheses—querying databases, invoking APIs, reorienting sensors, or manipulating physical objects—and update its beliefs from the consequences. Exploration can no longer be confined to branching over reasoning trajectories; it now unfolds in perception and action space, where every exploratory step incurs real cost (latency, API calls, energy, or irreversible physical change).
 
@@ -447,7 +447,7 @@ Defining *what* to explore remains a bottleneck in unbounded action spaces, and 
 
 <br>
 
-## 4. Level 4: Agent → Prospector — Imagination-Space Exploration
+## 4. Level 4: Prospector — Imagination-Space Exploration
 <p align="center"><img src="fig/level4_worldmodel.png" width="850"/></p>
 <p align="center"><i>Figure: Level 4 Imagination-Space Exploration — Why (the dual exploration problem), Where (simulated rollouts, hazard zones, latent value landscapes), and How (MBRL, video generation, autonomous driving, social dynamics)</i></p>
 
@@ -772,7 +772,7 @@ Social environments introduce recursive exploration: probing social dynamics res
 
 
 
-## 5. Level 5: Prospector → Ecosystem — Coordination-Space Exploration
+## 5. Level 5: Ecosystem — Coordination-Space Exploration
 
 <p align="center"><img src="fig/level5_ecosystem.png" width="850"/></p>
 <p align="center"><i>Figure: Level 5 Coordination-Space Exploration — Why (single-agent limitations), Where (communication, collaboration, role, deployment), and How (orchestration, ensemble, MARL, self-evolving agents).</i></p>
