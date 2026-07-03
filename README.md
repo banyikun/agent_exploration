@@ -142,16 +142,10 @@ Unlike undirected exploration (e.g., ε-greedy), epistemic exploration is *inten
       - [4D Occupancy Exploration and Physical Consistency](#4d-occupancy-exploration-and-physical-consistency)
       - [Closed-Loop Neural Simulation](#closed-loop-neural-simulation)
     - [4.3.4 Social Dynamics: Exploration in Strategic and Normative Environments](#434-social-dynamics-exploration-in-strategic-and-normative-environments)
-- [5. Level 5: Prospector → Ecosystem — Coordination-Space Exploration](#5-level-5-prospector--ecosystem--coordination-space-exploration)
-  - [5.1 Multi-Agent Orchestration](#51-multi-agent-orchestration)
-    - [5.1.1 Rule-based Orchestration (Reachability-Driven)](#511-rule-based-orchestration-reachability-driven)
-    - [5.1.2 Learnable Orchestration (Competence-Driven)](#512-learnable-orchestration-competence-driven)
-    - [5.1.3 Reflection \& Information-Theoretic Orchestration (Uncertainty-Driven)](#513-reflection--information-theoretic-orchestration-uncertainty-driven)
-    - [5.1.4 Memory \& Knowledge Substrate Exploration](#514-memory--knowledge-substrate-exploration)
-  - [5.2 Agentic Ensemble](#52-agentic-ensemble)
-    - [5.2.1 Competence-Driven Exploration: Cascade Methods](#521-competence-driven-exploration-cascade-methods)
-  - [5.3 MARL](#53-marl)
-  - [5.4 Self-Evolving](#54-self-evolving)
+- [5. Level 5: Ecosystem — Coordination-Space Exploration](#5-level-5-ecosystem--coordination-space-exploration)
+  - [5.1 Behavior Pattern Exploration](#51-behavior-pattern-exploration)
+  - [5.2 Role Dynamics Exploration](#52-role-dynamics-exploration)
+  - [5.3 Organization Topology Exploration](#53-organization-topology-exploration)
 - [6. Exploration Evaluation](#6-exploration-evaluation)
   - [Foundations](#foundations)
   - [Biological Exploration Parallels](#biological-exploration-parallels)
@@ -999,5 +993,4 @@ Classical multi-agent RL suites and newer language-agent collaboration benchmark
 <p align="center">
   <i>This repository is actively maintained. If you find any errors or have new papers to suggest, please open an issue or submit a pull request!</i>
 </p>
-
 
