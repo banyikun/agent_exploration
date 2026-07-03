@@ -805,33 +805,33 @@ This transition is not merely about scaling the number of agents. Single-agent s
 
 ### 5.1 Behavior Pattern Exploration
 
-这一小节引用多智能体强化学习中关于联合轨迹多样性、协同新颖性、同伴激励、行为新颖性的工作。正文中对应引用为 [76, 78, 79, 80]。
+This subsection cites works in multi-agent reinforcement learning on joint trajectory diversity, collaborative novelty, peer incentivization, and behavioral novelty. Corresponding in-text citations: [76, 78, 79, 80].
 
-|| Date | Method | Key Idea | Paper | Github |
+| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-|| 2025 | **TEM** | Trajectory entropy maximization for efficient multi-agent exploration, emphasizing trajectory-level diversity | [Toward Efficient Multi-Agent Exploration with Trajectory Entropy Maximization](https://arxiv.org/abs/2502.08365v1) | - |
-|| 2024 | **JIM** | Joint intrinsic motivation enabling coordinated exploration in multi-agent deep RL | [Joint Intrinsic Motivation for Coordinated Exploration in Multi-Agent Deep Reinforcement Learning](https://dl.acm.org/doi/10.5555/3677260.3677261) | - |
-|| 2025 | **PIMAEX** | Multi-agent exploration through peer incentivization, modeling inter-agent influence | [PIMAEX: Multi-Agent Exploration through Peer Incentivization](https://doi.org/10.5220/0013260000003890) | - |
-|| 2025 | **CERMIC** | Curiosity-driven exploration via multi-agent contextual calibration for behavioural novelty | [Wonder Wins Ways: Curiosity-Driven Exploration through Multi-Agent Contextual Calibration](https://arxiv.org/abs/2509.20648) | [![GitHub Stars](https://img.shields.io/github/stars/PyyWill/CERMIC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PyyWill/CERMIC) |
+| 2025 | **TEM** | Trajectory entropy maximization for efficient multi-agent exploration, emphasizing trajectory-level diversity | [Toward Efficient Multi-Agent Exploration with Trajectory Entropy Maximization](https://arxiv.org/abs/2502.08365v1) | - |
+| 2024 | **JIM** | Joint intrinsic motivation enabling coordinated exploration in multi-agent deep RL | [Joint Intrinsic Motivation for Coordinated Exploration in Multi-Agent Deep Reinforcement Learning](https://dl.acm.org/doi/10.5555/3677260.3677261) | - |
+| 2025 | **PIMAEX** | Multi-agent exploration through peer incentivization, modeling inter-agent influence | [PIMAEX: Multi-Agent Exploration through Peer Incentivization](https://doi.org/10.5220/0013260000003890) | - |
+| 2025 | **CERMIC** | Curiosity-driven exploration via multi-agent contextual calibration for behavioural novelty | [Wonder Wins Ways: Curiosity-Driven Exploration through Multi-Agent Contextual Calibration](https://arxiv.org/abs/2509.20648) | [![GitHub Stars](https://img.shields.io/github/stars/PyyWill/CERMIC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PyyWill/CERMIC) |
 
 ### 5.2 Role Dynamics Exploration
 
-这一小节引用关于固定角色协作、角色能力提升、动态团队构建、弱到强模型级联的工作。正文中对应引用为 [89, 81, 86, 87]。
+This subsection cites works on fixed-role collaboration, role competence enhancement, dynamic team construction, and weak-to-strong model cascading. Corresponding in-text citations: [89, 81, 86, 87].
 
-|| Date | Method | Key Idea | Paper | Github |
+| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-|| 2023 | **CAMEL** | Communicative agents for "mind" exploration of large language model society via role-playing | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | [![GitHub Stars](https://img.shields.io/github/stars/camel-ai/camel?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/camel-ai/camel) |
-|| 2025 | **CMAT** | Multi-agent collaboration tuning framework enhancing small language models through role competence and feedback-driven tuning | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
-|| 2024 | **AgentVerse** | Facilitates multi-agent collaboration and explores emergent behaviors via dynamic role adjustment and agent recruitment | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | - |
-|| 2024 | **Cascade Routing** | Unified approach to routing and cascading for LLMs, enabling weak-to-strong model cascades with cost-quality trade-offs | [A Unified Approach to Routing and Cascading for LLMs](https://arxiv.org/abs/2410.10347) | [![GitHub Stars](https://img.shields.io/github/stars/eth-sri/cascade-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eth-sri/cascade-routing) |
+| 2023 | **CAMEL** | Communicative agents for "mind" exploration of large language model society via role-playing | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | [![GitHub Stars](https://img.shields.io/github/stars/camel-ai/camel?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/camel-ai/camel) |
+| 2025 | **CMAT** | Multi-agent collaboration tuning framework enhancing small language models through role competence and feedback-driven tuning | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
+| 2024 | **AgentVerse** | Facilitates multi-agent collaboration and explores emergent behaviors via dynamic role adjustment and agent recruitment | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | - |
+| 2024 | **Cascade Routing** | Unified approach to routing and cascading for LLMs, enabling weak-to-strong model cascades with cost-quality trade-offs | [A Unified Approach to Routing and Cascading for LLMs](https://arxiv.org/abs/2410.10347) | [![GitHub Stars](https://img.shields.io/github/stars/eth-sri/cascade-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eth-sri/cascade-routing) |
 
 ### 5.3 Organization Topology Exploration
 
-这一小节引用讨论多智能体协作结构如何从固定流程变成可学习、可演化的组织过程的工作。正文中对应引用为 [90]。
+This subsection cites the work discussing how multi-agent collaboration structures evolve from fixed workflows into learnable, evolvable organizational processes. Corresponding in-text citation: [90].
 
-|| Date | Method | Key Idea | Paper | Github |
+| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-|| 2026 | **MA-EO** | Multi-agent collaboration via evolving orchestration, enabling dynamic scheduling and learnable organization topology | [Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591) | - |
+| 2026 | **MA-EO** | Multi-agent collaboration via evolving orchestration, enabling dynamic scheduling and learnable organization topology | [Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591) | - |
 
 <br>
 
