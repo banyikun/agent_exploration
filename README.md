@@ -803,145 +803,39 @@ This transition is not merely about scaling the number of agents. Single-agent s
 
 
 
-### 5.1 Multi-Agent Orchestration
+### 5.1 Behavior Pattern Exploration
 
-#### 5.1.1 Rule-based Orchestration (Reachability-Driven)
+这一小节引用多智能体强化学习中关于联合轨迹多样性、协同新颖性、同伴激励、行为新颖性的工作。正文中对应引用为 [76, 78, 79, 80]。
 
-Methods that coordinate collaboration through pre-defined routing rules, role protocols, or structured workflows to guarantee deterministic reachability across agents:
-
-| Date | Method | Key Idea | Paper | Github |
+|| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-| 2026-02 | **ORCH** | Explores many parallel analysis trajectories and merges them via a deterministic EMA-guided router to ensure reachable consensus in discrete-choice reasoning | [ORCH: Many Analyses, One Merge — A Deterministic Multi-Agent Orchestrator for Discrete-Choice Reasoning with EMA-Guided Routing](https://arxiv.org/abs/2602.01797) | - |
-| 2025-11 | **MA-IR** | Deterministic multi-agent orchestration for high-quality incident response decision support | [Multi-Agent LLM Orchestration Achieves Deterministic, High-Quality Decision Support for Incident Response](https://arxiv.org/abs/2511.15755) | - |
-| 2025-10 | **MOSAIC** | Task-intelligent orchestration routes specialised agents to explore scientific coding workflows within a rule-governed collaboration space | [MOSAIC: Multi-agent Orchestration for Task-Intelligent Scientific Coding](https://arxiv.org/abs/2510.08804) | - |
-| 2025-06 | **AgentOrchestra** | Defines the reachable coordination space via a Tool-Environment-Agent (TEA) protocol, scaffolding scalable multi-agent exploration | [AgentOrchestra: Orchestrating Multi-Agent Intelligence with the Tool-Environment-Agent (TEA) Protocol](https://arxiv.org/abs/2506.12508) | - |
-| 2025 | **Croto** | Cross-team communication rules carve out a reachable space of inter-team collaboration for multi-agent exploration | Multi-agent collaboration via cross-team orchestration | - |
-| 2024-06 | **MACNET** | Predefined topological links bound the agent interaction graph that large-scale multi-agent collaboration can traverse | [Scaling Large Language Model-based Multi-Agent Collaboration](https://arxiv.org/abs/2406.07155) | - |
-| 2023-08 | **MetaGPT** | Encodes SOPs as meta-programming so role-based workflows follow reliably reachable collaboration trajectories | [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](https://arxiv.org/abs/2308.00352) | - |
-| 2023 | **AgentVerse** | Rule-driven collaboration scaffolds multi-agent exploration of emergent group behaviours within a reachable role space | [Agentverse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | - |
+|| 2025 | **TEM** | Trajectory entropy maximization for efficient multi-agent exploration, emphasizing trajectory-level diversity | [Toward Efficient Multi-Agent Exploration with Trajectory Entropy Maximization](https://arxiv.org/abs/2502.08365v1) | - |
+|| 2024 | **JIM** | Joint intrinsic motivation enabling coordinated exploration in multi-agent deep RL | [Joint Intrinsic Motivation for Coordinated Exploration in Multi-Agent Deep Reinforcement Learning](https://dl.acm.org/doi/10.5555/3677260.3677261) | - |
+|| 2025 | **PIMAEX** | Multi-agent exploration through peer incentivization, modeling inter-agent influence | [PIMAEX: Multi-Agent Exploration through Peer Incentivization](https://doi.org/10.5220/0013260000003890) | - |
+|| 2025 | **CERMIC** | Curiosity-driven exploration via multi-agent contextual calibration for behavioural novelty | [Wonder Wins Ways: Curiosity-Driven Exploration through Multi-Agent Contextual Calibration](https://arxiv.org/abs/2509.20648) | [![GitHub Stars](https://img.shields.io/github/stars/PyyWill/CERMIC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PyyWill/CERMIC) |
 
-#### 5.1.2 Learnable Orchestration (Competence-Driven)
+### 5.2 Role Dynamics Exploration
 
-Methods that train orchestrators, meta-agents, or agent graphs to route tasks toward the most competent executors and expand multi-agent capability boundaries:
+这一小节引用关于固定角色协作、角色能力提升、动态团队构建、弱到强模型级联的工作。正文中对应引用为 [89, 81, 86, 87]。
 
-| Date | Method | Key Idea | Paper | Github |
+|| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-| 2026-01 | **MAS-Orchestra** | Expands multi-agent reasoning competence through holistic orchestration, with controlled benchmarks probing the explored system space | [MAS-Orchestra: Understanding and Improving Multi-Agent Reasoning Through Holistic Orchestration and Controlled Benchmarks](https://arxiv.org/abs/2601.14652) | - |
-| 2025-05 | **Puppeteer-Puppet** | Evolves a puppeteer that explores dynamic orchestration strategies over puppet agents to extend collaborative competence | [Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591) | - |
-| 2025-04 | **W4S** | Trains a weak meta-agent to explore task decompositions and harness strong executor agents beyond its own competence | [Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors](https://arxiv.org/abs/2504.04785) | - |
-| 2024-04 | **CMAT** | Collaboration tuning expands small-model agent competence by exploring multi-agent interaction signals | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
-| 2024-02 | **GPTSwarm** | Treats language agents as optimizable computation graphs, enabling competence-driven search over prompts and inter-agent edges | [Language Agents as Optimizable Graphs](https://arxiv.org/abs/2402.16823) | - |
+|| 2023 | **CAMEL** | Communicative agents for "mind" exploration of large language model society via role-playing | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | [![GitHub Stars](https://img.shields.io/github/stars/camel-ai/camel?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/camel-ai/camel) |
+|| 2025 | **CMAT** | Multi-agent collaboration tuning framework enhancing small language models through role competence and feedback-driven tuning | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
+|| 2024 | **AgentVerse** | Facilitates multi-agent collaboration and explores emergent behaviors via dynamic role adjustment and agent recruitment | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | - |
+|| 2024 | **Cascade Routing** | Unified approach to routing and cascading for LLMs, enabling weak-to-strong model cascades with cost-quality trade-offs | [A Unified Approach to Routing and Cascading for LLMs](https://arxiv.org/abs/2410.10347) | [![GitHub Stars](https://img.shields.io/github/stars/eth-sri/cascade-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eth-sri/cascade-routing) |
 
-#### 5.1.3 Reflection & Information-Theoretic Orchestration (Uncertainty-Driven)
+### 5.3 Organization Topology Exploration
 
-Methods that adapt orchestration policies through reflection feedback or information-theoretic uncertainty signals across long-horizon multi-agent tasks:
+这一小节引用讨论多智能体协作结构如何从固定流程变成可学习、可演化的组织过程的工作。正文中对应引用为 [90]。
 
-| Date | Method | Key Idea | Paper | Github |
+|| Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-| 2025-09 | **Orchestrator** | Uses active inference to drive multi-agent exploration under epistemic uncertainty across long-horizon tasks | [Orchestrator: Active Inference for Multi-Agent Systems in Long-Horizon Tasks](https://arxiv.org/abs/2509.05651) | - |
-| 2025-04 | **W4S** | Weak meta-agent explores orchestration policies over strong executors, guided by reflection on uncertain outcomes | [Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors](https://arxiv.org/abs/2504.04785) | - |
-| 2025-03 | **MAS-GPT** | Trains LLMs to synthesise multi-agent systems per query, exploring the system-design space conditioned on task uncertainty | [MAS-GPT: Training LLMs to Build LLM-based Multi-Agent Systems](https://arxiv.org/abs/2503.03686) | - |
-| 2024-04 | **CMAT** | Reflective multi-agent tuning explores feedback-driven collaboration to calibrate small-agent competence under uncertainty | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
-
-#### 5.1.4 Memory & Knowledge Substrate Exploration
-
-Methods that build self-evolving multi-agent systems on shared memory or knowledge substrates to support long-horizon specialisation and exploration:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-05 | **PiFlow** | Principle-aware orchestration grows a scientific knowledge substrate that guides multi-agent discovery exploration | [PiFlow: Principle-aware Scientific Discovery with Multi-Agent Collaboration](https://arxiv.org/abs/2505.15047) | [![GitHub Stars](https://img.shields.io/github/stars/amair-lab/PiFlow?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/amair-lab/PiFlow) |
-| 2025-03 | **MedAgentSim** | Self-evolving clinical multi-agent simulation explores new cases by accumulating case-level memory as a shared substrate | [Self-Evolving Multi-Agent Simulations for Realistic Clinical Interactions](https://arxiv.org/abs/2503.22678) | [![GitHub Stars](https://img.shields.io/github/stars/MAXNORM8650/MedAgentSim?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/MAXNORM8650/MedAgentSim) |
-| 2025 | **SEMC** | Self-evolving consultation grows a shared diagnostic knowledge base, expanding the reachable medical case space over time | A Self-Evolving Framework for Multi-Agent Medical Consultation Based on Large Language Models | - |
-| 2025-02 | **MobileSteward** | Orchestrates app-oriented agents with self-evolving memory to explore cross-app instruction compositions | [MobileSteward: Integrating Multiple App-Oriented Agents with Self-Evolution to Automate Cross-App Instructions](https://arxiv.org/abs/2502.16796) | [![GitHub Stars](https://img.shields.io/github/stars/XiaoMi/MobileSteward?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/XiaoMi/MobileSteward) |
-| 2025-01 | **Mobile-Agent-E** | Self-evolving mobile assistant explores complex tasks by accumulating reusable tips and shortcuts as a growing experience substrate | [Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks](https://arxiv.org/abs/2501.11733) | [![GitHub Stars](https://img.shields.io/github/stars/X-PLUG/MobileAgent?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/X-PLUG/MobileAgent/tree/main/Mobile-Agent-E) |
-| 2023-04 | **Generative Agents** | Interactive simulacra use memory-retrieval substrates to explore and surface emergent social behaviour over long horizons | [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) | [![GitHub Stars](https://img.shields.io/github/stars/joonspk-research/generative_agents?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/joonspk-research/generative_agents) |
-
+|| 2026 | **MA-EO** | Multi-agent collaboration via evolving orchestration, enabling dynamic scheduling and learnable organization topology | [Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591) | - |
 
 <br>
 
 
-### 5.2 Agentic Ensemble 
-
-
-
-
-
-#### 5.2.1 Competence-Driven Exploration: Cascade Methods
-
-
-These methods rely on an ordered chain of models—typically ranging from cost-effective, weaker models to more capable, premium ones—to determine whether a query can be early-stopped, escalated to a stronger model.
-That is, these methods explore when to halt computation along a weak-to-strong model cascade and which model should ultimately serve as the decision maker.
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-12 | **RoBoN** | Routes best-of-n samples across multiple LLMs, exploring which model adds the highest next-response gain via reward and agreement signals | [RoBoN: Routed Online Best-of-n for Test-Time Scaling with Multiple LLMs](https://arxiv.org/abs/2512.05542) | [![GitHub Stars](https://img.shields.io/github/stars/j-geuter/RoBoN?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/j-geuter/RoBoN) |
-| 2025-09 | **Semantic Agreement** | Uses meaning-level agreement between model outputs to explore whether a query can stop at a smaller model or should defer upward | [Semantic Agreement Enables Efficient Open-Ended LLM Cascades](https://arxiv.org/abs/2509.21837) | - |
-| 2025-04 | **EMAFusion** | Combines taxonomy routing, learned routing, and confidence-triggered escalation to explore the cheapest reliable model path for each query | [EMAFusion: A Self-Optimizing System for Seamless LLM Selection and Integration](https://arxiv.org/abs/2504.10681) | - |
-| 2025-04 | **ModelSwitch** | Uses sample consistency to explore when repeated sampling should stay with the current model or switch to a complementary one | [Do We Truly Need So Many Samples? Multi-LLM Repeated Sampling Efficiently Scales Test-Time Compute](https://arxiv.org/abs/2504.00762) | [![GitHub Stars](https://img.shields.io/github/stars/JianhaoChen-nju/ModelSwitch?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/JianhaoChen-nju/ModelSwitch) |
-| 2024-12 | **DER** | Treats expert selection as sequential route exploration, choosing the next LLM to add complementary knowledge with minimal compute | [Dynamic Ensemble Reasoning for LLM Experts](https://arxiv.org/abs/2412.07448) | - |
-| 2024-10 | **Cascade Routing** | Unifies routing and cascading to explore the model chain only when quality estimates suggest extra capacity will pay off | [A Unified Approach to Routing and Cascading for LLMs](https://arxiv.org/abs/2410.10347) | [![GitHub Stars](https://img.shields.io/github/stars/eth-sri/cascade-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eth-sri/cascade-routing) |
-| 2024-04 | **LM Cascades** | Uses token-level uncertainty to explore whether a generative response is reliable enough to stop or should be deferred to a larger model | [Language Model Cascades: Token-level Uncertainty and Beyond](https://arxiv.org/abs/2404.10136) | - |
-| 2023-10 | **AutoMix** | Uses self-verification and POMDP routing to explore whether a weaker model is sufficient or a larger model is needed | [AutoMix: Automatically Mixing Language Models](https://arxiv.org/abs/2310.12963) | [![GitHub Stars](https://img.shields.io/github/stars/automix-llm/automix?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/automix-llm/automix) |
-| 2023-10 | **Neural Caching** | Uses active selection to explore which queries a continuously distilled student can absorb and which should still go to the teacher | [Cache & Distil: Optimising API Calls to Large Language Models](https://arxiv.org/abs/2310.13561) | [![GitHub Stars](https://img.shields.io/github/stars/guillemram97/neural-caching?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/guillemram97/neural-caching) |
-| 2023-10 | **MoT Cascade** | Uses weak-model answer consistency, enriched with CoT/PoT thought mixtures, to explore whether escalation is necessary | [Large Language Model Cascades with Mixture of Thoughts Representations for Cost-efficient Reasoning](https://arxiv.org/abs/2310.03094) | [![GitHub Stars](https://img.shields.io/github/stars/MurongYue/LLM_MoT_cascade?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/MurongYue/LLM_MoT_cascade) |
-| 2023-10 | **EcoAssistant** | Explores a hierarchy of assistants, refining with execution feedback and backing off to stronger models only when needed | [EcoAssistant: Using LLM Assistant More Affordably and Accurately](https://arxiv.org/abs/2310.03046) | [![GitHub Stars](https://img.shields.io/github/stars/JieyuZ2/EcoAssistant?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/JieyuZ2/EcoAssistant) |
-| 2023-05 | **FrugalGPT** | Explores budget-aware combinations of LLMs, adaptively choosing a query-specific cascade for cost-efficient accuracy | [FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance](https://arxiv.org/abs/2305.05176) | - |
-| 2023-01 | **Confidence Deferral** | Clarifies when confidence-only deferral can explore the cascade effectively and when downstream-aware signals are required | [When Does Confidence-Based Cascade Deferral Suffice?](https://proceedings.neurips.cc/paper_files/paper/2023/hash/1f09e1ee5035a4c3fe38a5681cae5815-Abstract-Conference.html) | - |
-| 2022-10 | **Model Cascading** | Explores early exit across models of increasing capacity, reserving large-model compute for harder inputs | [Model Cascading: Towards Jointly Improving Efficiency and Accuracy of NLP Systems](https://arxiv.org/abs/2210.05528) | - |
-
-
-<br>
-
-### 5.3 MARL
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-12 | **SDAX** | Treats unsupervised skill discovery as high-level exploration and bi-level tunes diversity-vs-task rewards to learn agile locomotion behaviors | [Unsupervised Skill Discovery as Exploration for Learning Agile Locomotion](https://arxiv.org/abs/2508.08982) | - |
-| 2025-09 | **CERMIC** | Calibrates curiosity with inferred peer-intention context to filter noisy novelty and reward high information-gain transitions in sparse-reward MARL | [Wonder Wins Ways: Curiosity-Driven Exploration through Multi-Agent Contextual Calibration](https://arxiv.org/abs/2509.20648) | [![GitHub Stars](https://img.shields.io/github/stars/PyyWill/CERMIC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PyyWill/CERMIC) |
-| 2025-02 | **TEE** | Maximizes cross-agent trajectory entropy in a contrastive latent space via particle-based estimation, yielding intrinsic rewards for diverse coordinated exploration | [Toward Efficient Multi-Agent Exploration with Trajectory Entropy Maximization](https://arxiv.org/abs/2502.08365v1) | - |
-| 2025-02 | **Consensus-Diversity Tradeoff** | Shows implicit consensus with partial disagreement can preserve exploration diversity and improve robustness in dynamic multi-agent settings | [The Hidden Strength of Disagreement: Unraveling the Consensus-Diversity Tradeoff in Adaptive Multi-Agent Systems](https://arxiv.org/abs/2502.16565) | [![GitHub Stars](https://img.shields.io/github/stars/wuzengqing001225/ConsensusDiversityTradeoffMAS?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/wuzengqing001225/ConsensusDiversityTradeoffMAS) |
-| 2023-02 | **EMAX** | Uses per-agent value ensembles for UCB-guided exploration, low-variance ensemble targets, and majority-vote action selection to reduce miscoordination | [Ensemble Value Functions for Efficient Exploration in Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2302.03439) | - |
-| 2022-08 | **MACE** | Combines collaborative voxel mapping, global goal assignment, and time-aware safe-corridor planning for collision-safe multi-robot exploration of unknown spaces | [MACE: Multi-Agent Autonomous Collaborative Exploration of Unknown Environments](https://arxiv.org/abs/2208.06949) | - |
-| 2021-12 | **MASAC** | Proposes a CTDE multi-agent soft actor-critic front-end for collaborative waypoint search, coupled with minimal-snap trajectory optimization for executable robot motion | [Multi-agent Soft Actor-Critic Based Hybrid Motion Planner for Mobile Robots](https://arxiv.org/abs/2112.06594) | - |
-| 2021-11 | **EMC** | Uses prediction errors of induced individual Q-values as coordinated intrinsic rewards, plus episodic memory to reinforce informative experiences | [Episodic Multi-agent Reinforcement Learning with Curiosity-Driven Exploration](https://arxiv.org/abs/2111.11032) | [![GitHub Stars](https://img.shields.io/github/stars/kikojay/EMC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/kikojay/EMC) |
-| 2021-07 | **CMAE** | Selects shared exploration goals from entropy-scored projected state spaces and trains agents to reach them in a coordinated way | [Cooperative Exploration for Multi-Agent Deep Reinforcement Learning](https://arxiv.org/abs/2107.11444) | [![GitHub Stars](https://img.shields.io/github/stars/IouJenLiu/CMAE?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/IouJenLiu/CMAE) |
-| 2019-10 | **MAVEN** | Introduces latent-variable hierarchical control to induce temporally committed exploration modes while retaining value-decomposition scalability | [MAVEN: Multi-Agent Variational Exploration](https://arxiv.org/abs/1910.07483) | [![GitHub Stars](https://img.shields.io/github/stars/AnujMahajanOxf/MAVEN?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/AnujMahajanOxf/MAVEN) |
-| 2019-10 | **EITI/EDTI** | Encourages coordinated exploration by maximizing inter-agent influence, using mutual information (EITI) and value-of-interaction rewards (EDTI) | [Influence-Based Multi-Agent Exploration](https://arxiv.org/abs/1910.05512) | [![GitHub Stars](https://img.shields.io/github/stars/TonghanWang/EITI-EDTI?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/TonghanWang/EITI-EDTI) |
-| 2017-05 | **ICM** | Defines curiosity as forward-model prediction error in inverse-dynamics features, promoting exploration without relying on extrinsic rewards | [Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/abs/1705.05363) | [![GitHub Stars](https://img.shields.io/github/stars/pathak22/noreward-rl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/pathak22/noreward-rl) |
-
-
-
-
-<br>
-
-
-### 5.4 Self-Evolving
-
-Methods that let agents or LLMs continuously improve themselves—via self-generated rewards, self-feedback critiques, self-curriculum, or RL on self-collected trajectories—turning the model into the source of its own training signal and expanding its capability frontier through self-driven exploration:
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-11 | **AgentEvolver** | Self-evolves an LLM agent through self-questioning, self-navigating, and self-attributing modules so it generates its own tasks, trajectories, and credit signals for autonomous capability growth | [AgentEvolver: Towards Efficient Self-Evolving Agent System](https://arxiv.org/abs/2511.10395) | [![GitHub Stars](https://img.shields.io/github/stars/modelscope/AgentEvolver?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/modelscope/AgentEvolver) |
-| 2025-05 | **SPA-RL** | Decomposes a long-horizon agent's final reward into per-step progress contributions, providing dense intermediate rewards that stabilise RL on sparse-reward tasks | [SPA-RL: Reinforcing LLM Agents via Stepwise Progress Attribution](https://arxiv.org/abs/2505.20732) | [![GitHub Stars](https://img.shields.io/github/stars/WangHanLinHenry/SPA-RL-Agent?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/WangHanLinHenry/SPA-RL-Agent) |
-| 2025-05 | **GiGPO** | Adds an inner step-level group baseline on top of trajectory-level GRPO, enabling fine-grained credit assignment for multi-turn LLM agent training | [Group-in-Group Policy Optimization for LLM Agent Training](https://arxiv.org/abs/2505.10978) | [![GitHub Stars](https://img.shields.io/github/stars/langfengQ/verl-agent?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/langfengQ/verl-agent) |
-| 2025-05 | **SRSI** | LLM acts as its own judge to score self-generated solutions and uses these self-rewards as RL signal, bootstrapping improvement without external labels | [Self Rewarding Self Improving](https://arxiv.org/abs/2505.08827) | - |
-| 2025-03 | **DAPO** | Open-source large-scale LLM RL recipe introducing clip-higher, dynamic sampling, token-level policy-gradient loss, and overlong-reward shaping for stable scaling | [DAPO: An Open-Source LLM Reinforcement Learning System at Scale](https://arxiv.org/abs/2503.14476) | [![GitHub Stars](https://img.shields.io/github/stars/BytedTsinghua-SIA/DAPO?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/BytedTsinghua-SIA/DAPO) |
-| 2025-02 | **SiriuS** | Builds an experience library of successful multi-agent reasoning trajectories—augmented by re-trying and rewriting failed ones—and fine-tunes the agents on it for self-improvement | [SiriuS: Self-improving Multi-agent Systems via Bootstrapped Reasoning](https://arxiv.org/abs/2502.04780) | [![GitHub Stars](https://img.shields.io/github/stars/zou-group/sirius?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zou-group/sirius) |
-| 2024-11 | **WebRL** | Self-evolving online curriculum turns failed web tasks into new training instructions, paired with an outcome-supervised reward model and KL-constrained policy updates | [WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum Reinforcement Learning](https://arxiv.org/abs/2411.02337) | [![GitHub Stars](https://img.shields.io/github/stars/THUDM/WebRL?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/THUDM/WebRL) |
-| 2024-06 | **TextGrad** | Treats LLM-generated natural-language critiques as textual "gradients" and back-propagates them through compound AI systems to optimise prompts, code, and components end-to-end | [TextGrad: Automatic "Differentiation" via Text](https://arxiv.org/abs/2406.07496) | [![GitHub Stars](https://img.shields.io/github/stars/zou-group/textgrad?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zou-group/textgrad) |
-| 2024-06 | **DigiRL** | Two-stage offline-then-online autonomous RL with a VLM-based evaluator and an advantage-filtered curriculum to train robust Android device-control agents in the wild | [DigiRL: Training In-The-Wild Device-Control Agents with Autonomous Reinforcement Learning](https://arxiv.org/abs/2406.11896) | [![GitHub Stars](https://img.shields.io/github/stars/DigiRL-agent/digirl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/DigiRL-agent/digirl) |
-| 2024-03 | **Quiet-STaR** | Generalises STaR by sampling internal rationales at every token position and reinforcing the ones that improve next-token prediction, teaching LMs to "think" silently before speaking | [Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking](https://arxiv.org/abs/2403.09629) | [![GitHub Stars](https://img.shields.io/github/stars/ezelikman/quiet-star?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ezelikman/quiet-star) |
-| 2024-02 | **GRPO** | Removes PPO's value network by using group-sampled rollouts to compute the baseline, enabling memory-efficient on-policy RL for LLMs (introduced in DeepSeekMath) | [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) | [![GitHub Stars](https://img.shields.io/github/stars/deepseek-ai/DeepSeek-Math?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/deepseek-ai/DeepSeek-Math) |
-| 2024-01 | **SRLM** | LLM acts as its own judge via LLM-as-a-Judge prompting, generates preference pairs on its own outputs, and iteratively DPO-trains on them—removing the human reward bottleneck | [Self-Rewarding Language Models](https://arxiv.org/abs/2401.10020) | - |
-| 2023-10 | **SELF** | Iterative self-evolution loop where the model self-critiques and self-refines its outputs in natural-language feedback, then fine-tunes on the improved data | [SELF: Self-Evolution with Language Feedback](https://arxiv.org/abs/2310.00533) | - |
-| 2023-05 | **DPO** | Re-parameterises RLHF so the LM itself implicitly defines the reward, reducing alignment to a simple classification loss on preference pairs—no separate reward model or RL loop needed | [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) | [![GitHub Stars](https://img.shields.io/github/stars/eric-mitchell/direct-preference-optimization?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eric-mitchell/direct-preference-optimization) |
-| 2023-04 | **RRHF** | Aligns LLMs to human preferences by sampling multiple candidate responses and applying a ranking loss based on their reward order, sidestepping the complexity of PPO | [RRHF: Rank Responses to Align Language Models with Human Feedback without Tears](https://arxiv.org/abs/2304.05302) | [![GitHub Stars](https://img.shields.io/github/stars/GanjinZero/RRHF?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/GanjinZero/RRHF) |
-| 2023-03 | **Self-Refine** | Same LLM iteratively produces feedback on its own output and refines it across rounds, improving quality at inference time without any extra training or external supervision | [Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651) | [![GitHub Stars](https://img.shields.io/github/stars/madaan/self-refine?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/madaan/self-refine) |
-| 2023-03 | **Reflexion** | Agent verbalises why a trial failed, stores the reflection in episodic memory, and uses it to guide subsequent trials—"verbal" reinforcement learning without weight updates | [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366) | [![GitHub Stars](https://img.shields.io/github/stars/noahshinn/reflexion?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/noahshinn/reflexion) |
-| 2022-03 | **STaR** | Generates rationales for problems, rationalises wrong answers given the correct one, and iteratively fine-tunes on rationales that yield correct answers, bootstrapping reasoning ability | [STaR: Bootstrapping Reasoning with Reasoning](https://arxiv.org/abs/2203.14465) | [![GitHub Stars](https://img.shields.io/github/stars/ezelikman/STaR?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ezelikman/STaR) |
-
-
----
-<br>
 
 
 ## 6. Exploration Evaluation
