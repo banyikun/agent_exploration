@@ -810,9 +810,14 @@ This subsection cites works in multi-agent reinforcement learning on joint traje
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
 | 2025 | **TEM** | Trajectory entropy maximization for efficient multi-agent exploration, emphasizing trajectory-level diversity | [Toward Efficient Multi-Agent Exploration with Trajectory Entropy Maximization](https://arxiv.org/abs/2502.08365v1) | - |
+| 2023 | **EMAX** | Uses multiple value functions to estimate where agents are still uncertain, then guides them to explore those unclear but potentially useful joint behaviors | [Ensemble Value Functions for Efficient Exploration in Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2302.03439) | - |
 | 2024 | **JIM** | Joint intrinsic motivation enabling coordinated exploration in multi-agent deep RL | [Joint Intrinsic Motivation for Coordinated Exploration in Multi-Agent Deep Reinforcement Learning](https://dl.acm.org/doi/10.5555/3677260.3677261) | - |
 | 2025 | **PIMAEX** | Multi-agent exploration through peer incentivization, modeling inter-agent influence | [PIMAEX: Multi-Agent Exploration through Peer Incentivization](https://doi.org/10.5220/0013260000003890) | - |
 | 2025 | **CERMIC** | Curiosity-driven exploration via multi-agent contextual calibration for behavioural novelty | [Wonder Wins Ways: Curiosity-Driven Exploration through Multi-Agent Contextual Calibration](https://arxiv.org/abs/2509.20648) | [![GitHub Stars](https://img.shields.io/github/stars/PyyWill/CERMIC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PyyWill/CERMIC) |
+| 2025 | **CMAT** | Keeps a fixed multi-agent collaboration structure, then uses feedback to make each role better at doing its part in the team | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
+| 2025 | **W4S** | Lets a weak meta-agent learn how to organize stronger agents, so the system explores better workflows instead of relying on a hand-written pipeline | [Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors](https://arxiv.org/abs/2504.04785) | - |
+
+---
 
 ### 5.2 Role Dynamics Exploration
 
@@ -820,18 +825,32 @@ This subsection cites works on fixed-role collaboration, role competence enhance
 
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
-| 2023 | **CAMEL** | Communicative agents for "mind" exploration of large language model society via role-playing | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | [![GitHub Stars](https://img.shields.io/github/stars/camel-ai/camel?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/camel-ai/camel) |
+| 2025 | **Orchestrator** | Uses active inference to decide which agent should act next, helping the team adjust its roles and actions when the task is uncertain | [Orchestrator: Active Inference for Multi-Agent Systems in Long-Horizon Tasks](https://arxiv.org/abs/2509.05651) | - |
+| 2024 | **AgentVerse** | Facilitates multi-agent collaboration and explores emergent behaviors via dynamic role adjustment and agent recruitment | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | [![GitHub Stars](https://img.shields.io/github/stars/OpenBMB/AgentVerse?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/OpenBMB/AgentVerse) |
 | 2025 | **CMAT** | Multi-agent collaboration tuning framework enhancing small language models through role competence and feedback-driven tuning | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
-| 2024 | **AgentVerse** | Facilitates multi-agent collaboration and explores emergent behaviors via dynamic role adjustment and agent recruitment | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | - |
+| 2024 | **AgentVerse** | Lets the team change which agents participate and what roles they play, so collaboration can adapt when the current team structure is not enough | [AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors](https://openreview.net/forum?id=EHg5GDnyq1) | [![GitHub Stars](https://img.shields.io/github/stars/OpenBMB/AgentVerse?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/OpenBMB/AgentVerse) |
+| 2023 | **AutoMix** | Starts from cheaper or weaker models and calls stronger models only when needed, exploring when to stop or escalate during problem solving | [AutoMix: Automatically Mixing Language Models](https://arxiv.org/abs/2310.12963) | - |
 | 2024 | **Cascade Routing** | Unified approach to routing and cascading for LLMs, enabling weak-to-strong model cascades with cost-quality trade-offs | [A Unified Approach to Routing and Cascading for LLMs](https://arxiv.org/abs/2410.10347) | [![GitHub Stars](https://img.shields.io/github/stars/eth-sri/cascade-routing?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eth-sri/cascade-routing) |
+| 2023 | **CAMEL** | Communicative agents for "mind" exploration of large language model society via role-playing | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | [![GitHub Stars](https://img.shields.io/github/stars/camel-ai/camel?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/camel-ai/camel) |
+| 2024 | **MetaGPT** | Uses software-company-style roles such as product manager, architect, engineer, and reviewer to make collaboration more structured and stable | [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](https://arxiv.org/abs/2308.00352) | [![GitHub Stars](https://img.shields.io/github/stars/FoundationAgents/MetaGPT?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/FoundationAgents/MetaGPT) |
+
+
+
 
 ### 5.3 Organization Topology Exploration
 
 This subsection cites the work discussing how multi-agent collaboration structures evolve from fixed workflows into learnable, evolvable organizational processes. Corresponding in-text citation: [90].
 
+
 | Date | Method | Key Idea | Paper | Github |
 |:---:|:-------:|:---------|:------|:---:|
+| 2025 | **Orchestrator** | Adjusts the interaction structure during a task by deciding when to continue, replan, backtrack, or call another agent | [Orchestrator: Active Inference for Multi-Agent Systems in Long-Horizon Tasks](https://arxiv.org/abs/2509.05651) | - |
+| 2025 | **CMAT** | Learns better collaboration patterns among agents through feedback, instead of relying only on a manually fixed team structure | [CMAT: A Multi-Agent Collaboration Tuning Framework for Enhancing Small Language Models](https://arxiv.org/abs/2404.01663) | - |
+| 2025 | **W4S** | Optimizes the overall workflow by learning which stronger agents to use and in what order | [Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors](https://arxiv.org/abs/2504.04785) | - |
+| 2024 | **MetaGPT** | Defines a structured collaboration graph through fixed roles, ordered procedures, and shared documents | [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](https://arxiv.org/abs/2308.00352) | [![GitHub Stars](https://img.shields.io/github/stars/FoundationAgents/MetaGPT?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/FoundationAgents/MetaGPT) |
+| 2025 | **MACNET** | Organizes many agents into a clear collaboration network, so information can flow through the team without every agent talking to everyone | [Scaling Large Language Model-based Multi-Agent Collaboration](https://arxiv.org/abs/2406.07155) | - |
 | 2026 | **MA-EO** | Multi-agent collaboration via evolving orchestration, enabling dynamic scheduling and learnable organization topology | [Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591) | - |
+
 
 <br>
 
