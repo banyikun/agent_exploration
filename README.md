@@ -319,69 +319,46 @@ A digital agent's policy can rapidly collapse onto a narrow set of favoured tool
 ### 3.2 Embodied Agents
 
 <p align="center"><img src="fig/Level3Embodied.png" width="850"/></p>
-<p align="center"><i>Figure: Level 3 Embodied Agent Exploration — Exploration distributed across perceptual/semantic-spatial spaces, action/skill spaces, and safety spaces.</i></p>
+<p align="center"><i>Figure: Level 3 Embodied Agent Exploration — Perception, Planning/Decision, and Action.</i></p>
 
-Embodied agents—robotic manipulators, autonomous vehicles, navigation systems—explore in a continuous, high-dimensional action space defined by physical effectors and multimodal sensors. The cost of exploration is fundamentally different from the digital setting: every physical interaction consumes time, energy, and mechanical wear. To systematically navigate these constraints, embodied exploration operates across three distinct spaces:
+Embodied agents—robotic manipulators, autonomous vehicles, navigation systems—explore in a continuous, high-dimensional action space defined by physical effectors and multimodal sensors. The cost of exploration is fundamentally different from the digital setting: every physical interaction consumes time, energy, and mechanical wear, and many actions are irreversible. We organize embodied exploration by the **Where** dimension (i.e. which subsystem performs exploration):
 
-#### 3.2.1 Perceptual & Semantic-Spatial Spaces
+#### 3.2.1 Perception
 
-Before an agent can execute complex plans, it must actively control its sensors and navigate the environment to eliminate cognitive blind spots and reach task-relevant states. Exploration here focuses on reconstructing geometry, resolving semantic ambiguity, and pruning the spatial search manifold.
+The carrier of perceptual exploration is sensor-grounded evidence: viewpoints, sensor poses, partial maps, scene memories, and physical inquiry results. The agent actively selects camera poses or physical interactions to expose unseen regions, discover objects, and test physical attributes.
 
-| Date | Method | Space / Focus | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-10 | **Active Semantic Perception** | **Semantic Inference:** Entropy-driven exploration over LLM-sampled scene graph hypotheses | [Active Semantic Perception](https://arxiv.org/abs/2510.05430) | [![GitHub Stars](https://img.shields.io/github/stars/grasp-lyrl/active_semantic_perception?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/grasp-lyrl/active_semantic_perception) |
-| 2024-10 | **Fisher-Info Planning** | **Navigation:** MLLM-guided exploration balancing information gain vs. localisation risk | [Multimodal LLM Guided Exploration and Active Mapping using Fisher Information](https://arxiv.org/abs/2410.17422) | [![GitHub Stars](https://img.shields.io/github/stars/JiangWenPL/multimodal-active?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/JiangWenPL/multimodal-active) |
-| 2024-10 | **ActiveSplat** | **Reconstruction:** Gaussian-splat viewpoint exploration maximises reconstruction fidelity | [ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting](https://arxiv.org/abs/2410.21955) | [![GitHub Stars](https://img.shields.io/github/stars/Li-Yuetao/ActiveSplat?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Li-Yuetao/ActiveSplat) |
-| 2024-04 | **ActiveRIR** | **Multi-modal Inference:** Cross-modal audio-visual exploration for acoustic scene mapping | [ActiveRIR: Active Audio-Visual Exploration for Building Room Impulse Responses](https://arxiv.org/abs/2404.16216) | - |
-| 2023-11 | **Conan** | **Semantic Inference:** Active exploration as Bayesian query to disambiguate latent scene state | [Active Reasoning in an Open-World Environment](https://arxiv.org/abs/2311.02018) | [![GitHub Stars](https://img.shields.io/github/stars/ariesssxu/Conan-Active-Reasoning?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/ariesssxu/Conan-Active-Reasoning) |
-| 2023-10 | **LFG** | **Navigation:** LLM semantic-priors prune frontier exploration toward goal-relevant regions | [Language Frontier Guide: LLM-Based Semantic Priors for Exploration](https://arxiv.org/abs/2310.10103) | [![GitHub Stars](https://img.shields.io/github/stars/Michael-Equi/lfg-nav?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Michael-Equi/lfg-nav) |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2021-04 | **EVE** | Defines embodied visual exploration over informative views and trajectories | Uncertainty | [An Exploration of Embodied Visual Exploration](https://arxiv.org/abs/2104.14552) | - |
+| 2023-04 | **EXCALIBUR** | Open-ended physical exploration to test material properties before language reasoning | Uncertainty | [EXCALIBUR: Encouraging and Evaluating Embodied Exploration](https://arxiv.org/abs/2304.09051) | [![GitHub Stars](https://img.shields.io/github/stars/allenai/excalibur?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/allenai/excalibur) |
+| 2024-10 | **ActiveSplat** | Unifies online mapping, viewpoint selection, and path planning into an active reconstruction system | Uncertainty | [ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting](https://arxiv.org/abs/2410.21955) | [![GitHub Stars](https://img.shields.io/github/stars/Li-Yuetao/ActiveSplat?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Li-Yuetao/ActiveSplat) |
+| 2025-02 | **3D-Mem** | Represents explored regions as memory snapshots and unexplored regions as frontier snapshots | Reachability | [3D-Mem: 3D Scene Memory for Embodied Exploration and Reasoning](https://arxiv.org/abs/2502.16480) | - |
 
-#### 3.2.2 Action & Skill Spaces
+#### 3.2.2 Planning & Decision
 
-Competence-driven exploration targets the fine-grained manipulation manifold, pushing beyond pre-trained priors. Recent advances shift from pure offline imitation to online policy exploration (RL-VLA) and inference-time deliberation (Test-Time Compute).
+Exploration at the planning and decision-making level involves searching over target locations, language-conditioned goals, candidate subgoals, and plan repairs before physical movement occurs.
 
-**Online RL and VLA Policy Exploration.** Safely expanding manipulation boundaries via PPO/GRPO and hybrid offline-to-online fine-tuning.
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2020-07 | **SemExp** | Explores by building semantic maps to decide the next exploration area | Uncertainty | [Object Goal Navigation using Goal-Oriented Semantic Exploration](https://arxiv.org/abs/2007.00643) | [![GitHub Stars](https://img.shields.io/github/stars/devendrachaplot/Object-Goal-Navigation?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/devendrachaplot/Object-Goal-Navigation) |
+| 2022-01 | **PONI** | Predicts "where to look" by predicting potential functions on a semantic map | Uncertainty | [PONI: Potential Functions for ObjectGoal Navigation...](https://arxiv.org/abs/2201.10029) | [![GitHub Stars](https://img.shields.io/github/stars/srama2512/PONI?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/srama2512/PONI) |
+| 2023-01 | **CoW** | CLIP object localization + classical exploration as a strong zero-shot baseline | Uncertainty | [CoWs on Pasture: Baselines and Benchmarks for Language-Driven Zero-Shot Object Navigation](https://arxiv.org/abs/2301.10489) | [![GitHub Stars](https://img.shields.io/github/stars/samirgadre/cows?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/samirgadre/cows) |
+| 2023-12 | **VLFM** | Uses VLM to evaluate the language-grounded value of frontiers for semantic navigation | Uncertainty | [VLFM: Vision-Language Frontier Maps for Zero-Shot Semantic Navigation](https://arxiv.org/abs/2312.03281) | [![GitHub Stars](https://img.shields.io/github/stars/bdaiinstitute/vlfm?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/bdaiinstitute/vlfm) |
+| 2023-05 | **Voyager** | Explores open worlds using an automatic curriculum, skill library, and self-driven exploration | Competence / Reachability | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | [![GitHub Stars](https://img.shields.io/github/stars/MineDojo/Voyager?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/MineDojo/Voyager) |
+| 2023-02 | **DEPS** | Describes, explains, plans, and selects candidate subgoals to repair execution failures | Competence / Reachability | [Describe, Explain, Plan and Select: Interactive Planning with LLMs...](https://arxiv.org/abs/2302.01560) | [![GitHub Stars](https://img.shields.io/github/stars/craftjarvis/MC-Planner?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/craftjarvis/MC-Planner) |
+| 2024-10 | **V-GPS** | Uses an offline RL value function to rerank candidate actions from a generalist policy before execution | Competence / Reachability | [Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance](https://arxiv.org/abs/2410.13816) | - |
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2026-04 | **π₀.₇** | Steerable flow VLA trained with diverse multimodal context for out-of-the-box generalist skills | [π₀.₇: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities](https://arxiv.org/abs/2604.15483) | - |
-| 2026-02 | **GigaBrain-0.5M** | Foundation VLA learned directly from world-model-based RL at fleet scale | [GigaBrain-0.5M*: A VLA That Learns From World Model-Based RL](https://arxiv.org/abs/2602.12099) | - |
-| 2026-01 | **SOP** | Scalable online post-training infrastructure for fleet-scale VLA exploration | [SOP: Scalable Online Post-training for Generalist VLA Models](https://arxiv.org/abs/2601.03044) | - |
-| 2025-11 | **WMPO** | Pure world-model PPO enables safe online action-space exploration for VLA | [WMPO: World Model-Based Policy Optimization for VLA](https://arxiv.org/abs/2511.09515) | - |
-| 2025-11 | **π*₀.₆** | Flow-matching VLA that learns from online experience via offline RL | [π*₀.₆: A VLA That Learns From Experience](https://arxiv.org/abs/2511.14759) | - |
-| 2025-11 | **SRPO** | Self-refined exploration bridging static data and online rollouts | [SRPO: Self-Refined Policy Optimization for VLA](https://arxiv.org/abs/2511.15605) | [![GitHub Stars](https://img.shields.io/github/stars/SUSTechBruce/SRPO_MLLMs?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/SUSTechBruce/SRPO_MLLMs) |
-| 2025-10 | **π_RL** | First online PPO/GRPO RL fine-tuning for flow-matching VLA | [πRL: Online RL Fine-Tuning for Flow-Based Vision-Language-Action Models](https://arxiv.org/abs/2510.25889) | - |
-| 2025-09 | **Dual-Actor FT** | Dual-actor decoupling of exploration vs. exploitation for stable offline-to-online RL | [Dual-Actor Fine-Tuning of VLA Models](https://arxiv.org/abs/2509.13774) | - |
-| 2025-09 | **SimpleVLA-RL** | GRPO group-relative exploration scales VLA skill acquisition | [SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning](https://arxiv.org/abs/2509.09674) | [![GitHub Stars](https://img.shields.io/github/stars/PRIME-RL/SimpleVLA-RL?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PRIME-RL/SimpleVLA-RL) |
-| 2025-05 | **VLA-RL** | Scalable PPO-based online action-space exploration for VLA policies | [VLA-RL: Towards Masterful and General Robotic Manipulation with Scalable RL](https://arxiv.org/abs/2505.18719) | [![GitHub Stars](https://img.shields.io/github/stars/GuanxingLu/vlarl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/GuanxingLu/vlarl) |
-| 2025-02 | **ConRFT** | Consistency-regularised offline-to-online exploration for diffusion VLA | [ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy](https://arxiv.org/abs/2502.05450) | [![GitHub Stars](https://img.shields.io/github/stars/cccedric/conrft?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/cccedric/conrft) |
-| 2024-11 | **GRAPE** | Preference-aligned exploration generalises VLA policies to novel scenarios | [GRAPE: Generalizing Robot Policy via Preference Alignment](https://arxiv.org/abs/2411.19309) | - |
-| 2024-10 | **HIL-SERL** | Sample-efficient on-robot RL with human-in-the-loop interventions for dexterous tasks | [Precise and Dexterous Robotic Manipulation via Human-in-the-Loop RL](https://arxiv.org/abs/2410.21845) | [![GitHub Stars](https://img.shields.io/github/stars/rail-berkeley/hil-serl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/rail-berkeley/hil-serl) |
+#### 3.2.3 Action
 
-**Test-Time Compute & Cognitive Search.** Moving the exploration burden from training to deployment via inference-time deliberation.
+Action-level exploration involves physical trial-and-error, corrective fine-tuning, and expanding the agent's behavior repertoire through real-world interactions.
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2026-02 | **Recurrent-Depth VLA** | Implicit test-time compute scaling via latent iterative reasoning (no explicit tokens) | [Recurrent-Depth VLA: Implicit Test-Time Compute Scaling of VLA via Latent Iterative Reasoning](https://arxiv.org/abs/2602.07845) | - |
-| 2026-01 | **TT-VLA** | Value-free on-the-fly test-time RL adapts VLA policies per-episode | [Test-Time VLA: On-the-Fly Adaptation for Embodied Policies](https://arxiv.org/abs/2601.06748) | - |
-| 2025-12 | **TACO** | Anti-exploration test-time steering via continuous normalising flows | [TACO: Steering VLA Models at Test-Time via Anti-Exploration](https://arxiv.org/abs/2512.02834) | [![GitHub Stars](https://img.shields.io/github/stars/breez3young/TACO?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/breez3young/TACO) |
-| 2025-11 | **DeepThinkVLA** | Slow-thinking test-time exploration through deliberate chain-of-action reasoning | [DeepThink-VLA: From Language Reasoning to Action Reasoning](https://arxiv.org/abs/2511.15669) | [![GitHub Stars](https://img.shields.io/github/stars/OpenBMB/DeepThinkVLA?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/OpenBMB/DeepThinkVLA) |
-| 2025-09 | **VLA-Reasoner** | MCTS imagination-time exploration over autoregressive action trajectories | [VLA-Reasoner: Empowering VLA Models via Test-Time Monte Carlo Tree Search](https://arxiv.org/abs/2509.22643) | - |
-| 2025-08 | **MB-Search VLA** | Model-based MCTS over AR / Diffusion VLA imagines trajectories before acting | [Improving Pre-Trained VLA Policies with Model-Based Search](https://arxiv.org/abs/2508.12211) | - |
-| 2025-05 | **Hume** | System-2 deliberative exploration via continuous flow value guidance | [Hume: Introducing System-2 Thinking in Visual-Language-Action Model](https://arxiv.org/abs/2505.21432) | [![GitHub Stars](https://img.shields.io/github/stars/hume-vla/hume?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/hume-vla/hume) |
-| 2024-10 | **V-GPS** | Offline value guidance steers generalist AR / diffusion VLA decoding at test time | [Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance](https://arxiv.org/abs/2410.13816) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2024-10 | **HIL-SERL** | Interleaves human corrections with off-policy RL to explore and correct errors on real robots | Uncertainty / Competence | [Precise and Dexterous Robotic Manipulation via Human-in-the-Loop RL](https://arxiv.org/abs/2410.21845) | [![GitHub Stars](https://img.shields.io/github/stars/rail-berkeley/hil-serl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/rail-berkeley/hil-serl) |
+| 2024-09 | **DPPO** | Structured, on-manifold exploration for RL fine-tuning of continuous diffusion policies | Competence | [Diffusion Policy Policy Optimization](https://arxiv.org/abs/2409.00588) | [![GitHub Stars](https://img.shields.io/github/stars/irom-princeton/dppo?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/irom-princeton/dppo) |
+| 2021-04 | **MT-Opt** | Shares exploration, experience, and representations across real-world multi-task robotic RL | Reachability | [MT-Opt: Continuous Multi-Task Robotic Reinforcement Learning at Scale](https://arxiv.org/abs/2104.08212) | - |
+| 2021-04 | **MTRF** | Reset-free exploration where different tasks provide start states for one another | Reachability | [Reset-Free Reinforcement Learning via Multi-Task Learning...](https://arxiv.org/abs/2104.11203) | - |
 
-#### 3.2.3 Safety & Reachable Spaces
-
-To prevent irreversible physical damage while preserving the ability to learn, embodied agents must explore within constrained, dynamically shaped boundaries driven by synthesized rewards and hard safety shields.
-
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-05 | **TeViR** | **Reward:** Text-to-video diffusion rewards enable efficient sparse-task exploration | [TeViR: Text-to-Video Reward with Diffusion Models for Efficient RL](https://arxiv.org/abs/2505.19769) | - |
-| 2025-03 | **SafeVLA** | **Safety:** Constrained policy exploration under hard safety guarantees for VLA | [SafeVLA: Towards Safety Alignment of VLA Model via Constrained Learning](https://arxiv.org/abs/2503.03480) | [![GitHub Stars](https://img.shields.io/github/stars/PKU-Alignment/SafeVLA?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/PKU-Alignment/SafeVLA) |
-| 2024-09 | **CurricuLLM** | **Reward:** LLM-designed curricula for progressive exploration of hard manipulation skills | [CurricuLLM: Automatic Task Curricula Design for Learning Complex Robot Skills using LLMs](https://arxiv.org/abs/2409.18382) | [![GitHub Stars](https://img.shields.io/github/stars/labicon/CurricuLLM?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/labicon/CurricuLLM) |
-| 2024-04 | **RECOVER** | **Safety:** Neuro-symbolic failure detection bounds exploratory trajectories in manipulation | [RECOVER: Neuro-Symbolic Failure Recovery for Robotic Manipulation](https://arxiv.org/abs/2404.00756) | - |
-| 2023-10 | **Eureka** | **Reward:** LLM-synthesised executable reward code evolves the explorable task manifold | [Eureka: Human-Level Reward Design via Coding Large Language Models](https://arxiv.org/abs/2310.12931) | [![GitHub Stars](https://img.shields.io/github/stars/eureka-research/eureka?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/eureka-research/eureka) |
 
 ---
 
