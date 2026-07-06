@@ -1,7 +1,7 @@
 
 <h1 align="center">🔥 Awesome-Agent-Exploration
 
-"Agent Exploration Toward Artificial General Intelligence"</h2>
+"Agent Exploration Toward Artificial General Intelligence: A Survey"</h2>
 
 
 
@@ -47,7 +47,7 @@
 
 ## 📣 Notices
 
-> 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
+> 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence: A Survey"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
 
 > 🔥 **Stay tuned for our full paper release, incorporating the latest developments.**
 
