@@ -47,7 +47,7 @@
 
 ## 📣 Notices
 
-> 🔥 **[2026-07] Update!** We have included **Prompt-Driven Exploration (PDE)**, a prompt-space RL exploration method for LLM/VLA agents. It is listed under **3.1 Digital Agents → Reachability-Driven Exploration** (not Embodied Agents).
+> 🔥 **[2026-07] Update!** We have added **Prompt-Driven Exploration (PDE)** to **Level 3: Agent — Perception- & Action-Space Exploration → 3.2 Embodied Agents → 3.2.3 Action**. This paper combines VLA models, LLMs, and prompt-based exploration to induce global, structured exploration beyond local action noise.
 
 > 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence: A Survey"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
 
@@ -316,7 +316,6 @@ A digital agent's policy can rapidly collapse onto a narrow set of favoured tool
 | 2025-09 | **ENTROPO** | Uses entropy-enhanced preferences to diversify coding-agent exploration | [Building Coding Agents via Entropy-Enhanced Multi-Turn Preference Optimization](https://arxiv.org/abs/2509.12434) | - |
 | 2026-03 | **RAPO** | Expands policy exploration with retrieval-augmented experience | [RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization](https://arxiv.org/abs/2603.03078) | - |
 | 2026-04 | **E³-TIR** | Branches from high-entropy prefixes to exploit exploratory experience | [E3-TIR: Enhanced Experience Exploitation for Tool-Integrated Reasoning](https://arxiv.org/abs/2604.09455) | [![GitHub Stars](https://img.shields.io/github/stars/yuki-younai/E3-TIR?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/yuki-younai/E3-TIR) |
-| 2026-07 | **PDE** | Uses a VLM to rewrite task prompts from rollout feedback, inducing global policy perturbations beyond action-space noise | [Prompt-Driven Exploration](https://arxiv.org/abs/2607.08837) | - |
 
 <br>
 
@@ -358,6 +357,7 @@ Action-level exploration involves physical trial-and-error, corrective fine-tuni
 
 | Date | Method | Key Idea | How | Paper | Github |
 |:---:|:-------|:---------|:----|:------|:---:|
+| 2026-07 | **Prompt-Driven Exploration (PDE)** | Uses a VLM to diagnose failures and dynamically rewrite natural-language prompts to induce global, structured exploration in VLAs | Uncertainty / Competence | [Prompt-Driven Exploration](https://arxiv.org/abs/2607.08837) | - |
 | 2024-10 | **HIL-SERL** | Interleaves human corrections with off-policy RL to explore and correct errors on real robots | Uncertainty / Competence | [Precise and Dexterous Robotic Manipulation via Human-in-the-Loop RL](https://arxiv.org/abs/2410.21845) | [![GitHub Stars](https://img.shields.io/github/stars/rail-berkeley/hil-serl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/rail-berkeley/hil-serl) |
 | 2024-09 | **DPPO** | Structured, on-manifold exploration for RL fine-tuning of continuous diffusion policies | Competence | [Diffusion Policy Policy Optimization](https://arxiv.org/abs/2409.00588) | [![GitHub Stars](https://img.shields.io/github/stars/irom-princeton/dppo?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/irom-princeton/dppo) |
 | 2021-04 | **MT-Opt** | Shares exploration, experience, and representations across real-world multi-task robotic RL | Reachability | [MT-Opt: Continuous Multi-Task Robotic Reinforcement Learning at Scale](https://arxiv.org/abs/2104.08212) | - |
