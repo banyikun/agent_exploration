@@ -110,9 +110,9 @@ Unlike undirected exploration (e.g., ε-greedy), epistemic exploration is *inten
   - [2.3 Latent-Space Exploration: Searching Before Tokenization](#23-latent-space-exploration-searching-before-tokenization)
 - [3. Level 3: Agent — Perception- \& Action-Space Exploration](#3-level-3-agent--perception---action-space-exploration)
   - [3.1 Digital Agents](#31-digital-agents)
-    - [3.1.1 Uncertainty-Driven Exploration](#311-uncertainty-driven-exploration)
-    - [3.1.2 Competence-Driven Exploration](#312-competence-driven-exploration)
-    - [3.1.3 Reachability-Driven Exploration](#313-reachability-driven-exploration)
+    - [3.1.1 Tool Usage](#311-tool-usage)
+    - [3.1.2 Planning](#312-planning)
+    - [3.1.3 Memory Management](#313-memory-management)
   - [3.2 Embodied Agents](#32-embodied-agents)
     - [3.2.1 Perceptual & Semantic-Spatial Spaces](#321-perceptual--semantic-spatial-spaces)
     - [3.2.2 Action & Skill Spaces](#322-action--skill-spaces)
@@ -274,48 +274,42 @@ At Level 3, the agent crosses a qualitative boundary: it moves from purely inter
 
 Digital agents operate in software-mediated environments—web browsers, code interpreters, file systems, and tool APIs. Their action space is discrete and combinatorial (which tool to call, with what arguments, in what order), feedback is fast but often sparse, and the primary exploration challenge is discovering effective tool-invocation policies across a vast combinatorial manifold.
 
-#### 3.1.1 Uncertainty-Driven Exploration
+We organize digital-agent exploration by the **Where** dimension: the interface where exploration is instantiated. In digital environments, exploration primarily appears in **tool usage**, **planning**, and **memory management**. The **How** column keeps the three epistemic-exploration methodologies: uncertainty-driven, competence-driven, and reachability-driven.
 
-Beyond maintaining diversity, a digital agent must actively seek information to resolve the epistemic uncertainty that arises when static pre-trained priors prove insufficient in "environmentally-open" scenarios. Uncertainty-priority exploration leverages uncertainty signals to prioritize informative interactions and mitigate overconfident failures under partial observability. Methods typically fall into explicit uncertainty estimation (using UCB or count-based bonuses) and implicit self-perceived uncertainty (triggering reflection or knowledge seeking at capability boundaries):
+#### 3.1.1 Tool Usage
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2026-01 | **JitRL** | Uses count-based uncertainty bonuses to explore unseen state-action pairs | [Just-In-Time Reinforcement Learning: Continual Learning in LLM Agents Without Gradient Updates](https://arxiv.org/abs/2601.18510) | [![GitHub Stars](https://img.shields.io/github/stars/liushiliushi/JitRL?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/liushiliushi/JitRL) |
-| 2023-05 | **RAP** | Explores alternative reasoning paths with MCTS and UCB guidance | [Reasoning with Language Model is Planning with World Model](https://doi.org/10.18653/v1/2023.emnlp-main.507) | [![GitHub Stars](https://img.shields.io/github/stars/Ber666/RAP?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Ber666/RAP) |
-| 2024-08 | **Agent Q** | Expands high-value action trajectories via MCTS-guided exploration | [Agent Q: Advanced Reasoning and Learning for Autonomous AI Agents](https://arxiv.org/abs/2408.07199) | - |
-| 2023-10 | **LAST** | Explores reasoning-action branches through language-agent tree search | [Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models](https://arxiv.org/abs/2310.04406) | [![GitHub Stars](https://img.shields.io/github/stars/lapisrocks/LanguageAgentTreeSearch?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/lapisrocks/LanguageAgentTreeSearch) |
-| 2025-04 | **KnowSelf** | Explores capability boundaries by detecting uncertain self-knowledge | [Agentic Knowledgeable Self-awareness](https://arxiv.org/abs/2504.03553) | [![GitHub Stars](https://img.shields.io/github/stars/zjunlp/KnowSelf?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zjunlp/KnowSelf) |
-| 2025-01 | **Search-o1** | Explores external evidence when reasoning exposes knowledge uncertainty | [Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://doi.org/10.18653/v1/2025.emnlp-main.276) | [![GitHub Stars](https://img.shields.io/github/stars/RUC-NLPIR/Search-o1?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/RUC-NLPIR/Search-o1) |
-| 2025-04 | **TTRL** | Test-time RL via majority-voted pseudo-rewards turns inference disagreement into exploration | [TTRL: Test-Time Reinforcement Learning](https://arxiv.org/abs/2504.16084) | - |
+Tool usage is the executable interface through which a digital agent extends its native language-model capability with external computation and environment interaction. Exploration here concerns which tool to call, how to parameterize the call, how to branch over alternative function-call paths, and how to use tool feedback for self-verification.
 
-#### 3.1.2 Competence-Driven Exploration
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2025-11 | **Agent0-VL** | Uses Solver-Verifier self-play to generate process rewards and repair signals for tool-integrated vision-language reasoning | Competence | [Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning](https://arxiv.org/abs/2511.19900) | [![GitHub Stars](https://img.shields.io/github/stars/aiming-lab/Agent0?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/aiming-lab/Agent0) |
+| 2025-08 | **EGPO** | Adds entropy bonuses to encourage high-entropy exploration over function-call trajectories during RL | Reachability | [Reasoning through Exploration: A Reinforcement Learning Framework for Robust Function Calling](https://arxiv.org/abs/2508.05118) | [![GitHub Stars](https://img.shields.io/github/stars/BingguangHao/RLFC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/BingguangHao/RLFC) |
+| 2026-03 | **RAPO** | Retrieves off-policy step-level traces during rollout to expand exploration beyond self-generated tool-use trajectories | Reachability | [RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization](https://arxiv.org/abs/2603.03078) | - |
+| 2026-04 | **E³-TIR** | Exploits external or expert experience to expose useful tool-use branches beyond pure on-policy sampling | Reachability | [E3-TIR: Enhanced Experience Exploitation for Tool-Integrated Reasoning](https://arxiv.org/abs/2604.09455) | [![GitHub Stars](https://img.shields.io/github/stars/yuki-younai/E3-TIR?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/yuki-younai/E3-TIR) |
 
-To master the vast and high-dimensional action space inherent in agentic interaction, systems must transcend naive trial-and-error. Strategic exploration prunes the action manifold and prioritizes high-utility trajectories through curricula (staged complexity), prior-based credit assignment (objective-aligned process signals), and self-play (autonomously generating targeted action distributions):
+#### 3.1.2 Planning
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-08 | **PilotRL** | Stages curricula to expand agent exploration from planning to tool use | [PilotRL: Training Language Model Agents via Global Planning-Guided Progressive Reinforcement Learning](https://arxiv.org/abs/2508.00344) | - |
-| 2025-09 | **ReSum-GRPO** | Sustains long-horizon search exploration through context summarization | [ReSum: Unlocking Long-Horizon Search Intelligence via Context Summarization](https://arxiv.org/abs/2509.13313) | - |
-| 2024-03 | **ETO** | Optimizes exploratory trial-and-error trajectories for agent learning | [Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents](https://arxiv.org/abs/2403.02502) | [![GitHub Stars](https://img.shields.io/github/stars/Yifan-Song793/ETO?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/Yifan-Song793/ETO) |
-| 2024-11 | **WebRL** | Self-evolving online curriculum from failure trajectories for web agents | [WebRL: Training LLM Web Agents via Self-Evolving Online Curriculum RL](https://arxiv.org/abs/2411.02337) | - |
-| 2025-09 | **Planner-R1** | Uses dense process rewards to steer exploration toward feasible plans | [Planner-R1: Reward Shaping Enables Efficient Agentic RL with Smaller LLMs](https://arxiv.org/abs/2509.25779) | - |
-| 2025-08 | **RLTR** | Rewards complete tool-use processes to improve exploratory planning | [Encouraging Good Processes Without the Need for Good Answers: Reinforcement Learning for LLM Agent Planning](https://arxiv.org/abs/2508.19598) | - |
-| 2025-04 | **ReTool** | RL rewards strategic tool-invocation patterns, penalises redundant calls | [ReTool: Reinforcement Learning for Strategic Tool Use in LLMs](https://arxiv.org/abs/2504.11536) | - |
-| 2025-05 | **GiGPO** | Assigns state-level credit across grouped rollouts for exploration | [Group-in-Group Policy Optimization for LLM Agent Training](https://arxiv.org/abs/2505.10978) | [![GitHub Stars](https://img.shields.io/github/stars/langfengQ/verl-agent?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/langfengQ/verl-agent) |
-| 2025-11 | **Agent0-VL** | Evolves tool-integrated exploration through repeated reasoning cycles | [Agent0-VL: Exploring Self-Evolving Agent for Tool-Integrated Vision-Language Reasoning](https://arxiv.org/abs/2511.19900) | [![GitHub Stars](https://img.shields.io/github/stars/aiming-lab/Agent0?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/aiming-lab/Agent0) |
-| 2025-05 | **Absolute Zero** | Uses proposer-solver self-play to explore new reasoning tasks | [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335) | [![GitHub Stars](https://img.shields.io/github/stars/LeapLabTHU/Absolute-Zero-Reasoner?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/LeapLabTHU/Absolute-Zero-Reasoner) |
+Planning provides the decision structure through which a digital agent decomposes tasks, selects intermediate actions, revises strategies, and coordinates multi-step interaction with an environment. Exploration here searches over reasoning paths, subgoals, task curricula, and trajectory-level policies before or during execution.
 
-#### 3.1.3 Reachability-Driven Exploration
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2025-04 | **KnowSelf** | Routes the agent among direct execution, reflection, and knowledge invocation according to self-perceived uncertainty | Uncertainty | [Agentic Knowledgeable Self-awareness](https://arxiv.org/abs/2504.03553) | [![GitHub Stars](https://img.shields.io/github/stars/zjunlp/KnowSelf?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/zjunlp/KnowSelf) |
+| 2025-08 | **PilotRL** | Uses a global-planning-guided progressive curriculum from plan following to plan generation and planner-executor coordination | Competence | [PilotRL: Training Language Model Agents via Global Planning-Guided Progressive Reinforcement Learning](https://arxiv.org/abs/2508.00344) | - |
+| 2026-05 | **EAPO** | Assigns fine-grained exploration rewards to intermediate actions for exploration-aware agentic credit assignment | Competence | [Learning to Explore: Scaling Agentic Reasoning via Exploration-Aware Policy Optimization](https://arxiv.org/abs/2605.08978) | [![GitHub Stars](https://img.shields.io/github/stars/HansenHua/EAPO-ICML26?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/HansenHua/EAPO-ICML26) |
+| 2025-05 | **GiGPO** | Groups matched intermediate states across rollouts to compute state-level relative advantages for finer-grained policy updates | Competence | [Group-in-Group Policy Optimization for LLM Agent Training](https://arxiv.org/abs/2505.10978) | [![GitHub Stars](https://img.shields.io/github/stars/langfengQ/verl-agent?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/langfengQ/verl-agent) |
+| 2025-05 | **Absolute Zero** | Uses reinforced self-play to generate its own task curriculum and learning signals without external data | Competence | [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335) | [![GitHub Stars](https://img.shields.io/github/stars/LeapLabTHU/Absolute-Zero-Reasoner?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/LeapLabTHU/Absolute-Zero-Reasoner) |
+| 2025-09 | **EPO** | Regulates trajectory-level entropy in multi-turn agent RL to prevent exploration-exploitation cascade failures | Reachability | [EPO: Entropy-regularized Policy Optimization for LLM Agents Reinforcement Learning](https://arxiv.org/abs/2509.22576) | [![GitHub Stars](https://img.shields.io/github/stars/WujiangXu/EPO?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/WujiangXu/EPO) |
 
-A digital agent's policy can rapidly collapse onto a narrow set of favoured tool-invocation patterns, foreclosing alternative interaction strategies before they can be evaluated. Reachability-driven methods explicitly optimise for sustained trajectory diversity through entropy control (regulating policy entropy) and external experience injection (exposing the agent to useful off-policy behaviours):
+#### 3.1.3 Memory Management
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2025-08 | **EGPO** | Adds entropy bonuses to encourage exploration in function-call reasoning | [Reasoning through Exploration: A Reinforcement Learning Framework for Robust Function Calling](https://arxiv.org/abs/2508.05118) | [![GitHub Stars](https://img.shields.io/github/stars/BingguangHao/RLFC?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/BingguangHao/RLFC) |
-| 2025-09 | **EPO** | Regularizes entropy to sustain exploration in multi-turn agent RL | [EPO: Entropy-regularized Policy Optimization for LLM Agents Reinforcement Learning](https://arxiv.org/abs/2509.22576) | [![GitHub Stars](https://img.shields.io/github/stars/WujiangXu/EPO?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/WujiangXu/EPO) |
-| 2025-09 | **ENTROPO** | Uses entropy-enhanced preferences to diversify coding-agent exploration | [Building Coding Agents via Entropy-Enhanced Multi-Turn Preference Optimization](https://arxiv.org/abs/2509.12434) | - |
-| 2026-03 | **RAPO** | Expands policy exploration with retrieval-augmented experience | [RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization](https://arxiv.org/abs/2603.03078) | - |
-| 2026-04 | **E³-TIR** | Branches from high-entropy prefixes to exploit exploratory experience | [E3-TIR: Enhanced Experience Exploitation for Tool-Integrated Reasoning](https://arxiv.org/abs/2604.09455) | [![GitHub Stars](https://img.shields.io/github/stars/yuki-younai/E3-TIR?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/yuki-younai/E3-TIR) |
+Memory management provides temporal continuity by preserving information beyond the immediate context window. Exploration here concerns what interaction history, posterior belief, retrieved evidence, or compressed summary should condition future decisions.
+
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:----|:------|:---:|
+| 2026-01 | **JitRL** | Retrieves past state-action-return experiences to estimate just-in-time action advantages without gradient updates | Uncertainty | [Just-In-Time Reinforcement Learning: Continual Learning in LLM Agents Without Gradient Updates](https://arxiv.org/abs/2601.18510) | [![GitHub Stars](https://img.shields.io/github/stars/liushiliushi/JitRL?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/liushiliushi/JitRL) |
+| 2025-04 | **PSRL Agent** | Maintains textual posteriors over environment dynamics and rewards, then samples hypotheses to guide efficient exploration | Uncertainty | [Toward Efficient Exploration by Large Language Model Agents](https://arxiv.org/abs/2504.20997) | - |
+| 2025-01 | **Search-o1** | Retrieves and refines external knowledge when reasoning exposes uncertainty or missing evidence | Uncertainty | [Search-o1: Agentic Search-Enhanced Large Reasoning Models](https://doi.org/10.18653/v1/2025.emnlp-main.276) | [![GitHub Stars](https://img.shields.io/github/stars/RUC-NLPIR/Search-o1?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/RUC-NLPIR/Search-o1) |
+| 2025-09 | **ReSum-GRPO** | Compresses long interaction histories into reusable summaries that allow long-horizon search to continue across context limits | Competence | [ReSum: Unlocking Long-Horizon Search Intelligence via Context Summarization](https://arxiv.org/abs/2509.13313) | - |
 
 <br>
 
