@@ -47,6 +47,8 @@
 
 ## 📣 Notices
 
+> 🔥 **[2026-07] Update!** We have included a brief introduction to **Prompt-Driven Exploration (PDE)**, a highly relevant paper combining VLA models, LLMs, and prompt-based exploration! You can find it under the Action & Skill Spaces section.
+
 > 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence: A Survey"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
 
 > 🔥 **Stay tuned for our full paper release, incorporating the latest developments.**
@@ -355,6 +357,7 @@ Action-level exploration involves physical trial-and-error, corrective fine-tuni
 
 | Date | Method | Key Idea | How | Paper | Github |
 |:---:|:-------|:---------|:----|:------|:---:|
+| 2026-07 | **Prompt-Driven Exploration (PDE)** | Uses a VLM to diagnose failures and dynamically rewrite natural-language prompts to induce global, structured exploration in VLAs | Uncertainty / Competence | [Prompt-Driven Exploration](https://arxiv.org/abs/2607.08837) | - |
 | 2024-10 | **HIL-SERL** | Interleaves human corrections with off-policy RL to explore and correct errors on real robots | Uncertainty / Competence | [Precise and Dexterous Robotic Manipulation via Human-in-the-Loop RL](https://arxiv.org/abs/2410.21845) | [![GitHub Stars](https://img.shields.io/github/stars/rail-berkeley/hil-serl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/rail-berkeley/hil-serl) |
 | 2024-09 | **DPPO** | Structured, on-manifold exploration for RL fine-tuning of continuous diffusion policies | Competence | [Diffusion Policy Policy Optimization](https://arxiv.org/abs/2409.00588) | [![GitHub Stars](https://img.shields.io/github/stars/irom-princeton/dppo?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/irom-princeton/dppo) |
 | 2021-04 | **MT-Opt** | Shares exploration, experience, and representations across real-world multi-task robotic RL | Reachability | [MT-Opt: Continuous Multi-Task Robotic Reinforcement Learning at Scale](https://arxiv.org/abs/2104.08212) | - |
