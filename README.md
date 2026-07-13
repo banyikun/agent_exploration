@@ -47,7 +47,7 @@
 
 ## 📣 Notices
 
-> 🔥 **[2026-07] Update!** We have added **Prompt-Driven Exploration (PDE)** to **Level 3: Agent — Perception- & Action-Space Exploration → 3.2 Embodied Agents → 3.2.3 Action**. This paper combines VLA models, LLMs, and prompt-based exploration to induce global, structured exploration beyond local action noise.
+> 🔥 **[2026-07] Update!** We have added **Prompt-Driven Exploration (PDE)** to **Level 3: Agent — Perception- & Action-Space Exploration → 3.2 Embodied Agents → 3.2.2 Planning**. This paper combines VLA models, LLMs, and prompt-based exploration to induce global, structured exploration beyond local action noise.
 
 > 🔥 This is a curated paper list for the survey **"Agent Exploration Toward Artificial General Intelligence: A Survey"**, covering exploration mechanisms across reasoning, embodied AI, world models, and multi-agent systems.
 
@@ -350,6 +350,7 @@ Exploration at the planning and decision-making level involves searching over ta
 | 2023-05 | **Voyager** | Explores open worlds using an automatic curriculum, skill library, and self-driven exploration | Competence / Reachability | [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | [![GitHub Stars](https://img.shields.io/github/stars/MineDojo/Voyager?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/MineDojo/Voyager) |
 | 2023-02 | **DEPS** | Describes, explains, plans, and selects candidate subgoals to repair execution failures | Competence / Reachability | [Describe, Explain, Plan and Select: Interactive Planning with LLMs...](https://arxiv.org/abs/2302.01560) | [![GitHub Stars](https://img.shields.io/github/stars/craftjarvis/MC-Planner?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/craftjarvis/MC-Planner) |
 | 2024-10 | **V-GPS** | Uses an offline RL value function to rerank candidate actions from a generalist policy before execution | Competence / Reachability | [Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance](https://arxiv.org/abs/2410.13816) | - |
+| 2026-07 | **Prompt-Driven Exploration (PDE)** | Uses a VLM to diagnose failures and dynamically rewrite natural-language prompts to induce global, structured exploration in VLAs | Uncertainty / Competence | [Prompt-Driven Exploration](https://arxiv.org/abs/2607.08837) | - |
 
 #### 3.2.3 Action
 
@@ -357,7 +358,6 @@ Action-level exploration involves physical trial-and-error, corrective fine-tuni
 
 | Date | Method | Key Idea | How | Paper | Github |
 |:---:|:-------|:---------|:----|:------|:---:|
-| 2026-07 | **Prompt-Driven Exploration (PDE)** | Uses a VLM to diagnose failures and dynamically rewrite natural-language prompts to induce global, structured exploration in VLAs | Uncertainty / Competence | [Prompt-Driven Exploration](https://arxiv.org/abs/2607.08837) | - |
 | 2024-10 | **HIL-SERL** | Interleaves human corrections with off-policy RL to explore and correct errors on real robots | Uncertainty / Competence | [Precise and Dexterous Robotic Manipulation via Human-in-the-Loop RL](https://arxiv.org/abs/2410.21845) | [![GitHub Stars](https://img.shields.io/github/stars/rail-berkeley/hil-serl?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/rail-berkeley/hil-serl) |
 | 2024-09 | **DPPO** | Structured, on-manifold exploration for RL fine-tuning of continuous diffusion policies | Competence | [Diffusion Policy Policy Optimization](https://arxiv.org/abs/2409.00588) | [![GitHub Stars](https://img.shields.io/github/stars/irom-princeton/dppo?style=for-the-badge&logo=github&label=GitHub&color=black)](https://github.com/irom-princeton/dppo) |
 | 2021-04 | **MT-Opt** | Shares exploration, experience, and representations across real-world multi-task robotic RL | Reachability | [MT-Opt: Continuous Multi-Task Robotic Reinforcement Learning at Scale](https://arxiv.org/abs/2104.08212) | - |
