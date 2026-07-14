@@ -369,7 +369,7 @@ At Levels 1--3, exploration operates within spaces the agent directly inhabits. 
 The world model serves as a cognitive sandbox where the agent navigates latent manifolds, generates simulated rollouts, and probes epistemic boundaries. This dual exploration regime introduces unique challenges: prediction errors compound over imagined horizons, uncertainty must be disentangled from irreducible noise, and safety-critical details risk being lost in latent compression. The exploration objective shifts from ``which action to take'' to ``which latent configurations are worth visiting, which imagined trajectories are physically plausible, and how can intrinsic signals guide exploration when external feedback is absent.''
 
 <p align="center"><img src="fig/level4_worldmodel.png" width="850"/></p>
-<p align="center"><i>Figure: Level 4 Imagination-Space Exploration -- Why (dual exploration problem: reality drift, noise hijacking, detail loss), Where (imagined space, risk frontier, value landscape, latent manifold), and How (model-based RL, video generation, autonomous driving, social dynamics).</i></p>
+<p align="center"><i>Figure: Level 4 Imagination-Space Exploration -- Why (dual exploration problem: reality drift, noise hijacking, detail loss), Where (imagined space, risk frontier, value landscape, latent manifold), and How (uncertainty-driven, competence-driven, reachability-driven, self-supervised).</i></p>
 
 <br>
 
@@ -377,12 +377,12 @@ The world model serves as a cognitive sandbox where the agent navigates latent m
 
 Imagined-space exploration operates within the internal simulation of the world model, where agents generate trajectories thousands of times faster than physical experiments. Methods here focus on planning to explore---maximizing expected novelty in imagined states through ensemble disagreement, optimistic dynamics, or state archiving.
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2019-06 | **MAX** | Maximizes Bayesian novelty via forward-model ensembles to plan observation of novel events | [Model-Based Active Exploration](https://arxiv.org/abs/1810.12162) | - |
-| 2020-05 | **Plan2Explore** | First ``plan to explore'' method: decouples exploration from task reward via latent ensemble disagreement in imagined space | [Planning to Explore via Self-Supervised World Models](https://arxiv.org/abs/2005.05960) | - |
-| 2021-02 | **Go-Explore** | ``Return-then-explore'' paradigm with explicit state archive and goal-conditioned return policies | [First return, then explore](https://doi.org/10.1038/s41586-020-03157-9) | - |
-| 2026-02 | **Optimistic WM** | RBMLE-based optimism directly into world model learning; gradient-based optimistic dynamics without ensemble estimation | [Optimistic World Models](https://arxiv.org/abs/2602.10044) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:---|:------|:---:|
+| 2019-06 | **MAX** | Maximizes Bayesian novelty via forward-model ensembles to plan observation of novel events | Uncertainty | [Model-Based Active Exploration](https://arxiv.org/abs/1810.12162) | - |
+| 2020-05 | **Plan2Explore** | First ``plan to explore'' method: decouples exploration from task reward via latent ensemble disagreement in imagined space | Uncertainty | [Planning to Explore via Self-Supervised World Models](https://arxiv.org/abs/2005.05960) | - |
+| 2021-02 | **Go-Explore** | ``Return-then-explore'' paradigm with explicit state archive and goal-conditioned return policies | Reachability | [First return, then explore](https://doi.org/10.1038/s41586-020-03157-9) | - |
+| 2026-02 | **Optimistic WM** | RBMLE-based optimism directly into world model learning; gradient-based optimistic dynamics without ensemble estimation | Uncertainty | [Optimistic World Models](https://arxiv.org/abs/2602.10044) | - |
 
 <br>
 
@@ -390,9 +390,9 @@ Imagined-space exploration operates within the internal simulation of the world 
 
 Risk-frontier exploration requires probing operational boundaries to identify failure modes. In safety-critical domains, agents must deliberately seek out regions of high epistemic uncertainty at the edge of their competence, resolving model uncertainty through risk-seeking trajectory optimization.
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2019-04 | **Curious iLQR** | Bayesian dynamics + risk-seeking iLQR to resolve model uncertainty at operational boundaries | [Curious iLQR: Resolving Uncertainty in Model-based RL](https://arxiv.org/abs/1904.06786) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:---|:------|:---:|
+| 2019-04 | **Curious iLQR** | Bayesian dynamics + risk-seeking iLQR to resolve model uncertainty at operational boundaries | Uncertainty | [Curious iLQR: Resolving Uncertainty in Model-based RL](https://arxiv.org/abs/1904.06786) | - |
 
 <br>
 
@@ -400,14 +400,14 @@ Risk-frontier exploration requires probing operational boundaries to identify fa
 
 Value-landscape exploration constructs internal value surfaces through intrinsic motivation when dense external rewards are absent. Methods here span from classical prediction-error curiosity to foundation-model-guided semantic exploration, covering the full spectrum of self-generated reward signals.
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 1991 | **Schmidhuber** | Foundational theory: curiosity as intrinsic reward proportional to world-model learning progress | [A Possibility for Implementing Curiosity and Boredom](https://direct.mit.edu/books/edited-volume/3865/chapter/162771/A-Possibility-for-Implementing-Curiosity-and) | - |
-| 2016 | **VIME** | Variational information maximization: Bayesian neural network provides information-gain intrinsic rewards | [VIME: Variational Information Maximizing Exploration](https://arxiv.org/abs/1605.09674) | [![GitHub Stars](https://img.shields.io/github/stars/matthewlujp/VIME?style=flat&logo=github&label=GitHub&color=black)](https://github.com/matthewlujp/VIME) |
-| 2021 | **SelMo** | Pure curiosity optimization within world model generates diverse manipulation and locomotion behaviors | [Is Curiosity All You Need?](https://deepmind.google/discover/blog/is-curiosity-all-you-need-on-the-utility-of-emergent-behaviours-from-curious-exploration/) | - |
-| 2023 | **Hindsight Curiosity** | Retrospective curiosity: asks ``should I have predicted this?'' to avoid noise-hijacking in stochastic environments | [Curiosity in Hindsight](https://arxiv.org/abs/2211.10515) | - |
-| 2025 | **Mantiuk** | Curiosity and competence co-evolve with world model learning in a feedback loop | [From Curiosity to Competence](https://arxiv.org/abs/2507.08210) | - |
-| 2025 | **SENSEI** | Foundation models guide semantic exploration toward meaningful behaviors | [SENSEI: Semantic Exploration Guided by Foundation Models](https://arxiv.org/abs/2503.01584) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:---|:------|:---:|
+| 1991 | **Schmidhuber** | Foundational theory: curiosity as intrinsic reward proportional to world-model learning progress | Uncertainty | [A Possibility for Implementing Curiosity and Boredom](https://direct.mit.edu/books/edited-volume/3865/chapter/162771/A-Possibility-for-Implementing-Curiosity-and) | - |
+| 2016 | **VIME** | Variational information maximization: Bayesian neural network provides information-gain intrinsic rewards | Uncertainty | [VIME: Variational Information Maximizing Exploration](https://arxiv.org/abs/1605.09674) | [![GitHub Stars](https://img.shields.io/github/stars/matthewlujp/VIME?style=flat&logo=github&label=GitHub&color=black)](https://github.com/matthewlujp/VIME) |
+| 2021 | **SelMo** | Pure curiosity optimization within world model generates diverse manipulation and locomotion behaviors | Uncertainty | [Is Curiosity All You Need?](https://deepmind.google/discover/blog/is-curiosity-all-you-need-on-the-utility-of-emergent-behaviours-from-curious-exploration/) | - |
+| 2023 | **Hindsight Curiosity** | Retrospective curiosity: asks ``should I have predicted this?'' to avoid noise-hijacking in stochastic environments | Uncertainty | [Curiosity in Hindsight](https://arxiv.org/abs/2211.10515) | - |
+| 2025 | **Mantiuk** | Curiosity and competence co-evolve with world model learning in a feedback loop | Competence / Uncertainty | [From Curiosity to Competence](https://arxiv.org/abs/2507.08210) | - |
+| 2025 | **SENSEI** | Foundation models guide semantic exploration toward meaningful behaviors | Competence / Uncertainty | [SENSEI: Semantic Exploration Guided by Foundation Models](https://arxiv.org/abs/2503.01584) | - |
 
 <br>
 
@@ -415,16 +415,16 @@ Value-landscape exploration constructs internal value surfaces through intrinsic
 
 Latent-manifold exploration operates on the compressed representation spaces learned by world models, where semantically similar states cluster. Methods here inject structure (object-centric, relational, geometric) into exploration or achieve exploration purely through self-supervised predictive learning.
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2020 | **LWM** | Self-supervised temporal representations for novelty detection in hard-exploration Atari games | [Latent World Models for Intrinsically Motivated Exploration](https://proceedings.neurips.cc/paper/2020/hash/3c09bb10e2189124fdd8f467cc8b55a7-Abstract.html) | - |
-| 2023 | **Sergeant-Perthuis** | Geometry of WM (Euclidean vs.~projective) fundamentally impacts epistemic value and curiosity | [Influence of the Geometry of the World Model on Curiosity Based Exploration](https://arxiv.org/abs/2304.00188) | - |
-| 2022 | **Sancaktar** | Relational inductive biases for compositional multi-object exploration with structured world models | [Curious Exploration via Structured World Models](https://arxiv.org/abs/2206.11403) | - |
-| 2025 | **GX-Chen** | Object-centric abstraction with discriminative WM for efficient count-based exploration planning | [Efficient Exploration with Object-Centric Abstraction](https://arxiv.org/abs/2408.11816) | - |
-| 2025 | **Santana** | Exploration policies learned entirely from self-supervised predictive WM training without external reward | [Learning To Explore With Predictive World Model](https://arxiv.org/abs/2502.13200) | - |
-| 2026 | **One Life** | Infer symbolic programmatic world models from minimal unguided exploration in stochastic environments | [One Life to Learn](https://openreview.net/forum?id=UQ36IrVCw2) | [![GitHub Stars](https://img.shields.io/github/stars/codezakh/onelife?style=flat&logo=github&label=GitHub&color=black)](https://github.com/codezakh/onelife) |
-| 2024 | **SeeX** | Separated world model extracts endogenous/exogenous info for robust exploration in visual distractor environments | [Leveraging Separated World Model for Exploration](https://proceedings.neurips.cc/paper_files/paper/2024/hash/96189e90e599ccc43f00434ff3ed0312-Abstract-Conference.html) | - |
-| 2025 | **InDRiVE** | Ensemble-disagreement curiosity extended to autonomous driving via Dreamer-style world models | [InDRiVE: Intrinsic Disagreement-based Reinforcement for Vehicle Exploration](https://arxiv.org/abs/2503.05573) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:---|:------|:---:|
+| 2020 | **LWM** | Self-supervised temporal representations for novelty detection in hard-exploration Atari games | Self-supervised / Uncertainty | [Latent World Models for Intrinsically Motivated Exploration](https://proceedings.neurips.cc/paper/2020/hash/3c09bb10e2189124fdd8f467cc8b55a7-Abstract.html) | - |
+| 2023 | **Sergeant-Perthuis** | Geometry of WM (Euclidean vs.~projective) fundamentally impacts epistemic value and curiosity | Structured / Uncertainty | [Influence of the Geometry of the World Model on Curiosity Based Exploration](https://arxiv.org/abs/2304.00188) | - |
+| 2022 | **Sancaktar** | Relational inductive biases for compositional multi-object exploration with structured world models | Structured / Uncertainty | [Curious Exploration via Structured World Models](https://arxiv.org/abs/2206.11403) | - |
+| 2025 | **GX-Chen** | Object-centric abstraction with discriminative WM for efficient count-based exploration planning | Structured / Uncertainty | [Efficient Exploration with Object-Centric Abstraction](https://arxiv.org/abs/2408.11816) | - |
+| 2025 | **Santana** | Exploration policies learned entirely from self-supervised predictive WM training without external reward | Self-supervised | [Learning To Explore With Predictive World Model](https://arxiv.org/abs/2502.13200) | - |
+| 2026 | **One Life** | Infer symbolic programmatic world models from minimal unguided exploration in stochastic environments | Self-supervised | [One Life to Learn](https://openreview.net/forum?id=UQ36IrVCw2) | [![GitHub Stars](https://img.shields.io/github/stars/codezakh/onelife?style=flat&logo=github&label=GitHub&color=black)](https://github.com/codezakh/onelife) |
+| 2024 | **SeeX** | Separated world model extracts endogenous/exogenous info for robust exploration in visual distractor environments | Uncertainty | [Leveraging Separated World Model for Exploration](https://proceedings.neurips.cc/paper_files/paper/2024/hash/96189e90e599ccc43f00434ff3ed0312-Abstract-Conference.html) | - |
+| 2025 | **InDRiVE** | Ensemble-disagreement curiosity extended to autonomous driving via Dreamer-style world models | Uncertainty | [InDRiVE: Intrinsic Disagreement-based Reinforcement for Vehicle Exploration](https://arxiv.org/abs/2503.05573) | - |
 
 <br>
 
@@ -434,23 +434,22 @@ Latent-manifold exploration operates on the compressed representation spaces lea
 
 The following six papers provide the world model architecture and algorithmic foundation for the exploration methods above:
 
-| Date | Method | Key Idea | Paper | Github |
-|:---:|:-------:|:---------|:------|:---:|
-| 2018 | **World Models** | V-M-C architecture: VAE compresses observations, RNN predicts latent dynamics, controller evolves in imagination | [Recurrent World Models Facilitate Policy Evolution](https://arxiv.org/abs/1809.01999) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/dreamerv3?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/dreamerv3) |
-| 2019 | **PlaNet** | RSSM for latent-space planning; decomposes latent states into deterministic and stochastic components | [Learning Latent Dynamics for Planning from Pixels](https://arxiv.org/abs/1811.04551) | - |
-| 2020 | **Dreamer** | Actor-critic training within imagined latent space of RSSM world model | [Dream to Control](https://arxiv.org/abs/1912.01603) | - |
-| 2023 | **DreamerV3** | Single WM algorithm masters diverse domains without hyperparameter tuning | [Mastering Diverse Domains through World Models](https://arxiv.org/abs/2301.04104) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/dreamerv3?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/dreamerv3) |
-| 2022 | **DayDreamer** | Dreamer transferred from simulation to physical robots | [DayDreamer: World Models for Physical Robot Learning](https://arxiv.org/abs/2206.14176) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/daydreamer?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/daydreamer) |
-| 2026 | **R2-Dreamer** | Eliminates decoders and augmentation; redundancy reduction improves exploration | [R2-Dreamer](https://arxiv.org/abs/2603.18202) | - |
+| Date | Method | Key Idea | How | Paper | Github |
+|:---:|:-------|:---------|:---|:------|:---:|
+| 2018 | **World Models** | V-M-C architecture: VAE compresses observations, RNN predicts latent dynamics, controller evolves in imagination | Infrastructure (Imagination) | [Recurrent World Models Facilitate Policy Evolution](https://arxiv.org/abs/1809.01999) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/dreamerv3?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/dreamerv3) |
+| 2019 | **PlaNet** | RSSM for latent-space planning; decomposes latent states into deterministic and stochastic components | Infrastructure (Planning) | [Learning Latent Dynamics for Planning from Pixels](https://arxiv.org/abs/1811.04551) | - |
+| 2020 | **Dreamer** | Actor-critic training within imagined latent space of RSSM world model | Infrastructure (Imagination) | [Dream to Control](https://arxiv.org/abs/1912.01603) | - |
+| 2023 | **DreamerV3** | Single WM algorithm masters diverse domains without hyperparameter tuning | Infrastructure (Scaling) | [Mastering Diverse Domains through World Models](https://arxiv.org/abs/2301.04104) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/dreamerv3?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/dreamerv3) |
+| 2022 | **DayDreamer** | Dreamer transferred from simulation to physical robots | Infrastructure (Real-world) | [DayDreamer: World Models for Physical Robot Learning](https://arxiv.org/abs/2206.14176) | [![GitHub Stars](https://img.shields.io/github/stars/danijar/daydreamer?style=flat&logo=github&label=GitHub&color=black)](https://github.com/danijar/daydreamer) |
+| 2026 | **R2-Dreamer** | Eliminates decoders and augmentation; redundancy reduction improves exploration | Infrastructure (Efficiency) | [R2-Dreamer](https://arxiv.org/abs/2603.18202) | - |
 
 <br>
 
-**Summary Statistics:** 25 papers total (19 core exploration + 6 infrastructure), spanning 1991--2026. Methods are distributed across 4 exploration spaces (Imagined Space, Risk Frontier, Value Landscape, Latent Manifold) and 4 application domains (Model-Based RL, Video Generation, Autonomous Driving, Social Dynamics).
+**Summary Statistics:** 25 papers total (19 core exploration + 6 infrastructure), spanning 1991--2026. Core methods are distributed across 4 exploration spaces (Imagined Space, Risk Frontier, Value Landscape, Latent Manifold) with How drivers: Uncertainty (13), Self-supervised / Uncertainty (3), Structured / Uncertainty (3), Reachability (1), Competence / Uncertainty (2), Self-supervised (2).
 
 ---
 
 <br>
-
 
 
 ## 5. Level 5: Ecosystem — Coordination-Space Exploration
