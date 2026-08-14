@@ -256,7 +256,7 @@ Latent-space exploration searches over hidden states or compact latent actions b
 
 | Date | Method | Key Idea | How | Paper | Github |
 |:---:|:-------|:---------|:----|:------|:---:|
-| 2025-12 | **ReLaX** | Promotes exploration by regulating latent hidden-state dynamics beyond token-level entropy | Reachability | [ReLaX: Reasoning with Latent Exploration for Large Reasoning Models](https://arxiv.org/abs/2512.07558) | [![GitHub Stars](https://img.shields.io/github/stars/ZhangShimin1/ReLaX?style=social)](https://github.com/ZhangShimin1/ReLaX/stargazers)|
+| 2025-12 | **ReLaX** | Promotes exploration by regulating latent hidden-state dynamics beyond token-level entropy | Reachability | [ReLaX: Reasoning with Latent Exploration for Large Reasoning Models](https://arxiv.org/abs/2512.07558) | [![GitHub Stars](https://img.shields.io/github/stars/ZhangShimin1/ReLaX?style=social)]([https://github.com/ZhangShimin1/ReLaX/stargazers](https://github.com/ZhangShimin1/ReLaX))|
 |2026-4 | **ESamp**| uses the prediction error as a novelty signal to reweight candidate token extensions conditioned on the current prefix|  Uncertainty   |      [Large Language Models Explore by Latent Distilling](https://arxiv.org/abs/2604.24927) |[![GitHub Stars](https://img.shields.io/github/stars/LinesHogan/tLLM?style=social)](https://github.com/LinesHogan/tLLM/stargazers) |
 
 ---
